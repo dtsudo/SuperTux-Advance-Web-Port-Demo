@@ -2,5 +2,6 @@ A demo of [https://github.com/dtsudo/SuperTux-Advance-Web-Port](https://github.c
 
 Demo:
 
+* latest: [https://dtsudo.github.io/SuperTux-Advance-Web-Port-Demo/latest/SuperTuxAdvanceWebVersion.html](https://dtsudo.github.io/SuperTux-Advance-Web-Port-Demo/latest/SuperTuxAdvanceWebVersion.html?unlocklevels=false&invulnerable=false&fps=60&width=424&height=240&scalingfactor=3)
 * v0.1.0 (released 2022-04-08): [https://dtsudo.github.io/SuperTux-Advance-Web-Port-Demo/2022-04-08_v0_1_0/SuperTuxAdvanceWebVersion.html](https://dtsudo.github.io/SuperTux-Advance-Web-Port-Demo/2022-04-08_v0_1_0/SuperTuxAdvanceWebVersion.html?unlocklevels=false&invulnerable=false&fps=60&width=424&height=240&scalingfactor=3)
 * v0.0.10 (released 2022-03-02): [https://dtsudo.github.io/SuperTux-Advance-Web-Port-Demo/2022-03-02_v0_0_10/SuperTuxAdvanceWebVersion.html](https://dtsudo.github.io/SuperTux-Advance-Web-Port-Demo/2022-03-02_v0_0_10/SuperTuxAdvanceWebVersion.html?unlocklevels=false&invulnerable=false&fps=60&width=320&height=240&scalingfactor=3)
