@@ -3,10 +3,18 @@ namespace SquirrelLanguageTranspiler
 {
 	using System;
 	using System.Collections.Generic;
+	using System.Globalization;
 	using System.Linq;
 
 	public class SquirrelTranspilerVisitor : SquirrelBaseVisitor<string>
 	{
+		private int squirrelForeachCounter;
+
+		public SquirrelTranspilerVisitor()
+		{
+			this.squirrelForeachCounter = 1;
+		}
+
 		public override string VisitStats(SquirrelParser.StatsContext context)
 		{
 			SquirrelParser.StatincludingemptystatementContext[] contexts = context.GetRuleContexts<SquirrelParser.StatincludingemptystatementContext>();
@@ -91,22 +99,27 @@ namespace SquirrelLanguageTranspiler
 
 			if (context.GetText().StartsWith("foreach", StringComparison.Ordinal))
 			{
+				int foreachCounterValue = this.squirrelForeachCounter;
+				this.squirrelForeachCounter++;
+
+				string variableName = "foreachOutput" + foreachCounterValue.ToString(CultureInfo.InvariantCulture);
+
 				string str = "";
 				str += " { ";
 
-				str += "    var foreachOutput = squirrelForEach ( " + this.VisitExp(context.exp(0)) + " ) ; ";
-				str += "    while ( true ) ";
+				str += "    var " + variableName + " = squirrelForEach( " + this.VisitExp(context.exp(0)) + " ); ";
+				str += "    while(true) ";
 				str += "    { ";
-				str += "       foreachOutput . next ( ) ; ";
-				str += "       if ( foreachOutput . isDone ( ) ) break ; ";
+				str += "       " + variableName + ".next(); ";
+				str += "       if (" + variableName + ".isDone()) break; ";
 
 				if (context.id().Length == 2)
 				{
-					str += this.VisitId(context.id(0)) + " = foreachOutput . getKey ( ) ; ";
-					str += this.VisitId(context.id(1)) + " = foreachOutput . getValue ( ) ; ";
+					str += this.VisitId(context.id(0)) + " = " + variableName + ".getKey(); ";
+					str += this.VisitId(context.id(1)) + " = " + variableName + ".getValue(); ";
 				}
 				else
-					str += this.VisitId(context.id(0)) + " = foreachOutput . getValue ( ) ; ";
+					str += this.VisitId(context.id(0)) + " = " + variableName + ".getValue(); ";
 				str += this.VisitStatNotIncludingObjectLiteral(context.statNotIncludingObjectLiteral(0));
 
 				str += "    } ";
@@ -206,7 +219,15 @@ namespace SquirrelLanguageTranspiler
 
 		public override string VisitPropertyAssignment(SquirrelParser.PropertyAssignmentContext context)
 		{
-			return this.VisitId(context.id()) + " : " + this.VisitExp(context.exp());
+			if (context.id() != null)
+				return this.VisitId(context.id()) + " : " + this.VisitExp(context.exp());
+
+			return this.VisitStr(context.str()) + " : " + this.VisitExp(context.exp());
+		}
+
+		public override string VisitStr(SquirrelParser.StrContext context)
+		{
+			return context.GetText();
 		}
 
 		public override string VisitObjectLiteral(SquirrelParser.ObjectLiteralContext context)

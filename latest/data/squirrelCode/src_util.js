@@ -11,7 +11,7 @@ mergeTable =  function ( a , b ) {  if (  squirrelTypeOf ( a )  == null &&  squi
   if (  squirrelTypeOf ( b )  == null )  return a ;
   
   var nt = clone ( a )  ;
-  {     var foreachOutput = squirrelForEach ( b ) ;     while ( true )     {        foreachOutput . next ( ) ;        if ( foreachOutput . isDone ( ) ) break ; slot = foreachOutput . getKey ( ) ; i = foreachOutput . getValue ( ) ;  { 
+  {     var foreachOutput1 = squirrelForEach( b );     while(true)     {        foreachOutput1.next();        if (foreachOutput1.isDone()) break; slot = foreachOutput1.getKey(); i = foreachOutput1.getValue();  { 
   if (  ! nt . rawin ( slot )  ) nt [ slot ] = i ; 
  
   else  if (  squirrelTypeOf ( nt [ slot ] )  == "table" &&  squirrelTypeOf ( b [ slot ] )  == "table" ) nt [ slot ] = mergeTable ( nt [ slot ]  , b [ slot ]  )  ; 

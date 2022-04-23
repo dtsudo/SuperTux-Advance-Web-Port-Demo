@@ -7,7 +7,7 @@ window.superTuxAdvanceWebVersion.squirrelFiles['src/pickchar.nut'] = function ()
 pickChar =  function (  ) { update (  )  ; 
 resetDrawTarget (  )  ; 
  var charlist =  [  ]  ;
-  {     var foreachOutput = squirrelForEach ( game . characters ) ;     while ( true )     {        foreachOutput . next ( ) ;        if ( foreachOutput . isDone ( ) ) break ; key = foreachOutput . getKey ( ) ; i = foreachOutput . getValue ( ) ;  { 
+  {     var foreachOutput1 = squirrelForEach( game . characters );     while(true)     {        foreachOutput1.next();        if (foreachOutput1.isDone()) break; key = foreachOutput1.getKey(); i = foreachOutput1.getValue();  { 
   var newitem =  [ key , i [ 2 ]  , i [ 3 ]  ]  ;
  charlist . push ( newitem )  ; 
  } 

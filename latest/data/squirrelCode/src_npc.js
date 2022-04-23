@@ -96,12 +96,12 @@ gvInfoBox = text ;
  } ;  returnVal . rescueKonqi = function (  ) { text = textLineLen ( gvLangObj [ "npc" ]  [ "konqi-c" ]  , gvTextW )  ; 
 gvInfoBox = text ; 
 freeKonqi (  )  ; 
- if ( actor . rawin ( "BossDoor" )  )  {     var foreachOutput = squirrelForEach ( actor [ "BossDoor" ]  ) ;     while ( true )     {        foreachOutput . next ( ) ;        if ( foreachOutput . isDone ( ) ) break ; i = foreachOutput . getValue ( ) ; i . opening = true ; 
+ if ( actor . rawin ( "BossDoor" )  )  {     var foreachOutput1 = squirrelForEach( actor [ "BossDoor" ]  );     while(true)     {        foreachOutput1.next();        if (foreachOutput1.isDone()) break; i = foreachOutput1.getValue(); i . opening = true ; 
     }  }  
   } ;  returnVal . rescueMidi = function (  ) { text = textLineLen ( gvLangObj [ "npc" ]  [ "midi-c" ]  , gvTextW )  ; 
 gvInfoBox = text ; 
 freeMidi (  )  ; 
- if ( actor . rawin ( "BossDoor" )  )  {     var foreachOutput = squirrelForEach ( actor [ "BossDoor" ]  ) ;     while ( true )     {        foreachOutput . next ( ) ;        if ( foreachOutput . isDone ( ) ) break ; i = foreachOutput . getValue ( ) ; i . opening = true ; 
+ if ( actor . rawin ( "BossDoor" )  )  {     var foreachOutput2 = squirrelForEach( actor [ "BossDoor" ]  );     while(true)     {        foreachOutput2.next();        if (foreachOutput2.isDone()) break; i = foreachOutput2.getValue(); i . opening = true ; 
     }  }  
   } ;  returnVal . rescueFriend = function (  ) {  if ( sprite == sprXue )  { 
   if (  ! game . friends . rawin ( "Xue" )  ) game . friends . Xue = true ; 
@@ -140,7 +140,7 @@ text = textLineLen ( gvLangObj [ "npc" ]  [ "garuda-c" ]  , gvTextW )  ;
   
   
  gvInfoBox = text ; 
- if ( actor . rawin ( "BossDoor" )  )  {     var foreachOutput = squirrelForEach ( actor [ "BossDoor" ]  ) ;     while ( true )     {        foreachOutput . next ( ) ;        if ( foreachOutput . isDone ( ) ) break ; i = foreachOutput . getValue ( ) ; i . opening = true ; 
+ if ( actor . rawin ( "BossDoor" )  )  {     var foreachOutput3 = squirrelForEach( actor [ "BossDoor" ]  );     while(true)     {        foreachOutput3.next();        if (foreachOutput3.isDone()) break; i = foreachOutput3.getValue(); i . opening = true ; 
     }  }  
   } ;  returnVal . _typeof = function (  ) {  return "NPC" ;
   } ; 

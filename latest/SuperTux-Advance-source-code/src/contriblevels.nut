@@ -1,6 +1,7 @@
 ::meContribLevels <- [
 
 ]
+::lastLevelsCounted <- {"contribFolder":null, "completed":null, "total":null, "percentage":null}
 
 ::selectContrib <- function(){
 	meContribLevels = []
@@ -15,8 +16,9 @@
 						contribName = data["name"]
 						contribWorldmap = data["worldmap"]
 						// webBrowserVersionChange: slight change to handle variables captured in a closure
-						name = (function (x) { return function(){ return x } })(data["name"])
+						name = (function (x) { return function () { return x }; })(data["name"])
 						func = (function (contribFolder, contribWorldmap) { return function() {
+							lastLevelsCounted = {"contribFolder":null, "completed":null, "total":null, "percentage":null}
 							game=clone(gameDefault)
 							game.completed.clear()
 							game.allCoins.clear()
@@ -42,6 +44,63 @@
 							}
 							if(fileExists("save/" + contribFolder + ".json")) loadGame(contribFolder)
 							else startOverworld("contrib/" + contribFolder + "/" + contribWorldmap)
+						} })(item, data["worldmap"])
+						desc = (function (contribFolder, contribWorldmap) { return function() {
+							if(lastLevelsCounted["contribFolder"] == contribFolder) {
+								//Check if the same world as last frame is selected and if so, return saved data.
+								return "Progress: " + lastLevelsCounted["completed"] + "/" + lastLevelsCounted["total"] + " (" + lastLevelsCounted["percentage"] + "%)"
+							}
+
+							local levels = []
+							local completedLevelsCount = 0
+
+							//Get all levels
+							local contribWorldmapData = jsonRead(fileRead("contrib/" + contribFolder + "/" + contribWorldmap))
+
+							//Get tileset for actors
+							local acttiles = null
+							foreach(tile in contribWorldmapData["tilesets"]) {
+								if(tile["name"] == "actor") {
+									acttiles = tile["firstgid"]
+									break
+								}
+							}
+							if(acttiles == null) {
+								print("ERROR: Could not find actor tileset in worldmap!")
+								return "ERROR: Could not find actor tileset in worldmap!"
+							}
+
+							foreach(layer in contribWorldmapData["layers"]) {
+								if(!layer.rawin("objects")) continue
+								foreach(obj in layer["objects"]) {
+									if(!obj.rawin("gid")) continue
+									if(obj["gid"] == acttiles + 1 && obj["visible"]) levels.push(obj["name"])
+								}
+							}
+
+							//Get completed levels count
+							if(fileExists("save/" + contribFolder + ".json")) {
+								local contribWorldmapSaveData = jsonRead(fileRead("save/" + contribFolder + ".json"))
+								foreach(level, levelCompleted in contribWorldmapSaveData["completed"]) {
+									// webBrowserVersionChange: avoid using array.find since squirrel and javascript 
+									// have different semantics for this function
+									if(levelCompleted) {
+										local wasFound = false;
+										for (local searchIndex = 0; searchIndex < levels.len(); searchIndex++) {
+											if (levels[searchIndex] == level)
+												wasFound = true;
+										}
+										if (wasFound)
+											completedLevelsCount++
+									}
+								}
+							}
+
+							// webBrowserVersionChange: use floor to enforce integer division
+							local percentage = floor(completedLevelsCount * 100 / levels.len())
+
+							lastLevelsCounted = {"contribFolder":contribFolder, "completed":completedLevelsCount, "total":levels.len(), "percentage":percentage}
+							return "Progress: " + completedLevelsCount + "/" + levels.len() + " (" + percentage + "%)"
 						} })(item, data["worldmap"])
 					}
 				)

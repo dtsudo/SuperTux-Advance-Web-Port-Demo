@@ -30,7 +30,7 @@ game . owy = y ;
  var level = "" ;
   var onstage = false ;
   if ( actor . rawin ( "StageIcon" )  )  { 
-  {     var foreachOutput = squirrelForEach ( actor [ "StageIcon" ]  ) ;     while ( true )     {        foreachOutput . next ( ) ;        if ( foreachOutput . isDone ( ) ) break ; i = foreachOutput . getValue ( ) ;  { 
+  {     var foreachOutput1 = squirrelForEach( actor [ "StageIcon" ]  );     while(true)     {        foreachOutput1.next();        if (foreachOutput1.isDone()) break; i = foreachOutput1.getValue();  { 
   if ( hitTest ( shape , i . shape )  )  { 
  level = i . level ; 
 onstage = true ; 
@@ -40,7 +40,7 @@ onstage = true ;
      }  }  } 
   
   if ( actor . rawin ( "TownIcon" )  )  { 
-  {     var foreachOutput = squirrelForEach ( actor [ "TownIcon" ]  ) ;     while ( true )     {        foreachOutput . next ( ) ;        if ( foreachOutput . isDone ( ) ) break ; i = foreachOutput . getValue ( ) ;  { 
+  {     var foreachOutput2 = squirrelForEach( actor [ "TownIcon" ]  );     while(true)     {        foreachOutput2.next();        if (foreachOutput2.isDone()) break; i = foreachOutput2.getValue();  { 
   if ( hitTest ( shape , i . shape )  )  { 
  level = i . level ; 
 onstage = true ; 
@@ -321,7 +321,7 @@ tilef = gvMap . tilef [ i ]  ;
   } 
   
   var actlayer =  - 1 ;
-  {     var foreachOutput = squirrelForEach ( gvMap . data . layers ) ;     while ( true )     {        foreachOutput . next ( ) ;        if ( foreachOutput . isDone ( ) ) break ; i = foreachOutput . getValue ( ) ;  { 
+  {     var foreachOutput3 = squirrelForEach( gvMap . data . layers );     while(true)     {        foreachOutput3.next();        if (foreachOutput3.isDone()) break; i = foreachOutput3.getValue();  { 
   if ( i [ "type" ]  == "objectgroup" && i [ "name" ]  == "actor" )  { 
  actlayer = i ; 
  break ;  } 
@@ -332,7 +332,7 @@ tilef = gvMap . tilef [ i ]  ;
  return ; 
   } 
   
-  {     var foreachOutput = squirrelForEach ( actlayer . objects ) ;     while ( true )     {        foreachOutput . next ( ) ;        if ( foreachOutput . isDone ( ) ) break ; i = foreachOutput . getValue ( ) ;  { 
+  {     var foreachOutput4 = squirrelForEach( actlayer . objects );     while(true)     {        foreachOutput4.next();        if (foreachOutput4.isDone()) break; i = foreachOutput4.getValue();  { 
   var n = i . gid - tilef ;
   switch ( n )  {  case 0 :  if (  ! gvPlayer ) newActor ( OverPlayer , i . x + 8 , i . y - 8 )  ; 
  
@@ -356,7 +356,7 @@ camy = 0 ;
  } 
   
  print ( "Running level code..." )  ; 
- if ( gvMap . data . rawin ( "properties" )  )  {     var foreachOutput = squirrelForEach ( gvMap . data . properties ) ;     while ( true )     {        foreachOutput . next ( ) ;        if ( foreachOutput . isDone ( ) ) break ; i = foreachOutput . getValue ( ) ;  { 
+ if ( gvMap . data . rawin ( "properties" )  )  {     var foreachOutput5 = squirrelForEach( gvMap . data . properties );     while(true)     {        foreachOutput5.next();        if (foreachOutput5.isDone()) break; i = foreachOutput5.getValue();  { 
   if ( i . name == "code" ) dostr ( i . value )  ; 
  
   } 
@@ -373,13 +373,13 @@ gvMap . drawTiles (  - camx ,  - camy , floor ( camx / 16 )  , floor ( camy / 16
 gvMap . drawTiles (  - camx ,  - camy , floor ( camx / 16 )  , floor ( camy / 16 )  ,  ( screenW (  )  / 16 )  + 5 ,  ( screenH (  )  / 16 )  + 2 , "fg" )  ; 
  if ( debug ) gvMap . drawTiles (  - camx ,  - camy , floor ( camx / 16 )  , floor ( camy / 16 )  ,  ( screenW (  )  / 16 )  + 5 ,  ( screenH (  )  / 16 )  + 2 , "solid" )  ; 
  
-  if ( actor . rawin ( "StageIcon" )  )  {     var foreachOutput = squirrelForEach ( actor [ "StageIcon" ]  ) ;     while ( true )     {        foreachOutput . next ( ) ;        if ( foreachOutput . isDone ( ) ) break ; i = foreachOutput . getValue ( ) ; i . run (  )  ; 
+  if ( actor . rawin ( "StageIcon" )  )  {     var foreachOutput6 = squirrelForEach( actor [ "StageIcon" ]  );     while(true)     {        foreachOutput6.next();        if (foreachOutput6.isDone()) break; i = foreachOutput6.getValue(); i . run (  )  ; 
     }  }  
-  if ( actor . rawin ( "WorldIcon" )  )  {     var foreachOutput = squirrelForEach ( actor [ "WorldIcon" ]  ) ;     while ( true )     {        foreachOutput . next ( ) ;        if ( foreachOutput . isDone ( ) ) break ; i = foreachOutput . getValue ( ) ; i . run (  )  ; 
+  if ( actor . rawin ( "WorldIcon" )  )  {     var foreachOutput7 = squirrelForEach( actor [ "WorldIcon" ]  );     while(true)     {        foreachOutput7.next();        if (foreachOutput7.isDone()) break; i = foreachOutput7.getValue(); i . run (  )  ; 
     }  }  
-  if ( actor . rawin ( "TownIcon" )  )  {     var foreachOutput = squirrelForEach ( actor [ "TownIcon" ]  ) ;     while ( true )     {        foreachOutput . next ( ) ;        if ( foreachOutput . isDone ( ) ) break ; i = foreachOutput . getValue ( ) ; i . run (  )  ; 
+  if ( actor . rawin ( "TownIcon" )  )  {     var foreachOutput8 = squirrelForEach( actor [ "TownIcon" ]  );     while(true)     {        foreachOutput8.next();        if (foreachOutput8.isDone()) break; i = foreachOutput8.getValue(); i . run (  )  ; 
     }  }  
-  if ( actor . rawin ( "Trigger" )  )  {     var foreachOutput = squirrelForEach ( actor [ "Trigger" ]  ) ;     while ( true )     {        foreachOutput . next ( ) ;        if ( foreachOutput . isDone ( ) ) break ; i = foreachOutput . getValue ( ) ; i . run (  )  ; 
+  if ( actor . rawin ( "Trigger" )  )  {     var foreachOutput9 = squirrelForEach( actor [ "Trigger" ]  );     while(true)     {        foreachOutput9.next();        if (foreachOutput9.isDone()) break; i = foreachOutput9.getValue(); i . run (  )  ; 
     }  }  
   if ( gvPlayer ) gvPlayer . run (  )  ; 
  

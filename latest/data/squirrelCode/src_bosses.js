@@ -41,7 +41,7 @@ Boss =  function ( ) { var returnVal = { constructor: function(){} } ;  returnVa
   } 
   
   else  { 
-  if ( actor . rawin ( "Fireball" )  )  {     var foreachOutput = squirrelForEach ( actor [ "Fireball" ]  ) ;     while ( true )     {        foreachOutput . next ( ) ;        if ( foreachOutput . isDone ( ) ) break ; i = foreachOutput . getValue ( ) ;  { 
+  if ( actor . rawin ( "Fireball" )  )  {     var foreachOutput1 = squirrelForEach( actor [ "Fireball" ]  );     while(true)     {        foreachOutput1.next();        if (foreachOutput1.isDone()) break; i = foreachOutput1.getValue();  { 
   if ( hitTest ( shape , i . shape )  )  { 
  hurtFire (  )  ; 
 deleteActor ( i . id )  ; 
@@ -49,7 +49,7 @@ deleteActor ( i . id )  ;
   
   } 
      }  }  
-  if ( actor . rawin ( "FireballK" )  )  {     var foreachOutput = squirrelForEach ( actor [ "FireballK" ]  ) ;     while ( true )     {        foreachOutput . next ( ) ;        if ( foreachOutput . isDone ( ) ) break ; i = foreachOutput . getValue ( ) ;  { 
+  if ( actor . rawin ( "FireballK" )  )  {     var foreachOutput2 = squirrelForEach( actor [ "FireballK" ]  );     while(true)     {        foreachOutput2.next();        if (foreachOutput2.isDone()) break; i = foreachOutput2.getValue();  { 
   if ( hitTest ( shape , i . shape )  )  { 
  newActor ( ExplodeF , i . x , i . y )  ; 
 deleteActor ( i . id )  ; 
@@ -57,7 +57,7 @@ deleteActor ( i . id )  ;
   
   } 
      }  }  
-  if ( actor . rawin ( "Iceball" )  )  {     var foreachOutput = squirrelForEach ( actor [ "Iceball" ]  ) ;     while ( true )     {        foreachOutput . next ( ) ;        if ( foreachOutput . isDone ( ) ) break ; i = foreachOutput . getValue ( ) ;  { 
+  if ( actor . rawin ( "Iceball" )  )  {     var foreachOutput3 = squirrelForEach( actor [ "Iceball" ]  );     while(true)     {        foreachOutput3.next();        if (foreachOutput3.isDone()) break; i = foreachOutput3.getValue();  { 
   if ( hitTest ( shape , i . shape )  )  { 
  hurtIce (  )  ; 
 deleteActor ( i . id )  ; 
@@ -65,28 +65,28 @@ deleteActor ( i . id )  ;
   
   } 
      }  }  
-  if ( actor . rawin ( "ExplodeF" )  )  {     var foreachOutput = squirrelForEach ( actor [ "ExplodeF" ]  ) ;     while ( true )     {        foreachOutput . next ( ) ;        if ( foreachOutput . isDone ( ) ) break ; i = foreachOutput . getValue ( ) ;  { 
+  if ( actor . rawin ( "ExplodeF" )  )  {     var foreachOutput4 = squirrelForEach( actor [ "ExplodeF" ]  );     while(true)     {        foreachOutput4.next();        if (foreachOutput4.isDone()) break; i = foreachOutput4.getValue();  { 
   if ( hitTest ( shape , i . shape )  )  { 
  hurtFire (  )  ; 
  } 
   
   } 
      }  }  
-  if ( actor . rawin ( "ExplodeT" )  )  {     var foreachOutput = squirrelForEach ( actor [ "ExplodeT" ]  ) ;     while ( true )     {        foreachOutput . next ( ) ;        if ( foreachOutput . isDone ( ) ) break ; i = foreachOutput . getValue ( ) ;  { 
+  if ( actor . rawin ( "ExplodeT" )  )  {     var foreachOutput5 = squirrelForEach( actor [ "ExplodeT" ]  );     while(true)     {        foreachOutput5.next();        if (foreachOutput5.isDone()) break; i = foreachOutput5.getValue();  { 
   if ( hitTest ( shape , i . shape )  )  { 
  hurtShock (  )  ; 
  } 
   
   } 
      }  }  
-  if ( actor . rawin ( "ExplodeI" )  )  {     var foreachOutput = squirrelForEach ( actor [ "ExplodeI" ]  ) ;     while ( true )     {        foreachOutput . next ( ) ;        if ( foreachOutput . isDone ( ) ) break ; i = foreachOutput . getValue ( ) ;  { 
+  if ( actor . rawin ( "ExplodeI" )  )  {     var foreachOutput6 = squirrelForEach( actor [ "ExplodeI" ]  );     while(true)     {        foreachOutput6.next();        if (foreachOutput6.isDone()) break; i = foreachOutput6.getValue();  { 
   if ( hitTest ( shape , i . shape )  )  { 
  hurtIce (  )  ; 
  } 
   
   } 
      }  }  
-  if ( actor . rawin ( "ExplodeN" )  )  {     var foreachOutput = squirrelForEach ( actor [ "ExplodeN" ]  ) ;     while ( true )     {        foreachOutput . next ( ) ;        if ( foreachOutput . isDone ( ) ) break ; i = foreachOutput . getValue ( ) ;  { 
+  if ( actor . rawin ( "ExplodeN" )  )  {     var foreachOutput7 = squirrelForEach( actor [ "ExplodeN" ]  );     while(true)     {        foreachOutput7.next();        if (foreachOutput7.isDone()) break; i = foreachOutput7.getValue();  { 
   if ( hitTest ( shape , i . shape )  )  { 
  hurtBlast (  )  ; 
  } 
@@ -124,7 +124,7 @@ BossManager =  function ( ) { var returnVal = { constructor: function(){} } ;  r
  doorID = _arr . tointeger (  )  ; 
  } 
   
-  {     var foreachOutput = squirrelForEach ( actor [ "Boss" ]  ) ;     while ( true )     {        foreachOutput . next ( ) ;        if ( foreachOutput . isDone ( ) ) break ; i = foreachOutput . getValue ( ) ;  { 
+  {     var foreachOutput9 = squirrelForEach( actor [ "Boss" ]  );     while(true)     {        foreachOutput9.next();        if (foreachOutput9.isDone()) break; i = foreachOutput9.getValue();  { 
  bossTotal ++  ; 
 healthTotal += 40 ; 
 healthActual += i . health ; 
@@ -135,7 +135,7 @@ healthActual += i . health ;
  
  bossTotal = actor [ "Boss" ]  . len (  )  ; 
 healthActual = 0 ; 
- if ( actor [ "Boss" ]  . len (  )  > 0 )  {     var foreachOutput = squirrelForEach ( actor [ "Boss" ]  ) ;     while ( true )     {        foreachOutput . next ( ) ;        if ( foreachOutput . isDone ( ) ) break ; i = foreachOutput . getValue ( ) ;  { 
+ if ( actor [ "Boss" ]  . len (  )  > 0 )  {     var foreachOutput8 = squirrelForEach( actor [ "Boss" ]  );     while(true)     {        foreachOutput8.next();        if (foreachOutput8.isDone()) break; i = foreachOutput8.getValue();  { 
   if ( i . ready ) healthActual += i . health ; 
  
   } 

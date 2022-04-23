@@ -36,7 +36,7 @@ Enemy =  function ( ) { var returnVal = { constructor: function(){} } ;  returnV
   
   } 
   
-  if ( actor . rawin ( "Fireball" )  )  {     var foreachOutput = squirrelForEach ( actor [ "Fireball" ]  ) ;     while ( true )     {        foreachOutput . next ( ) ;        if ( foreachOutput . isDone ( ) ) break ; i = foreachOutput . getValue ( ) ;  { 
+  if ( actor . rawin ( "Fireball" )  )  {     var foreachOutput1 = squirrelForEach( actor [ "Fireball" ]  );     while(true)     {        foreachOutput1.next();        if (foreachOutput1.isDone()) break; i = foreachOutput1.getValue();  { 
   if ( hitTest ( shape , i . shape )  )  { 
  hurtfire (  )  ; 
 deleteActor ( i . id )  ; 
@@ -44,14 +44,14 @@ deleteActor ( i . id )  ;
   
   } 
      }  }  
-  if ( actor . rawin ( "BadExplode" )  )  {     var foreachOutput = squirrelForEach ( actor [ "BadExplode" ]  ) ;     while ( true )     {        foreachOutput . next ( ) ;        if ( foreachOutput . isDone ( ) ) break ; i = foreachOutput . getValue ( ) ;  { 
+  if ( actor . rawin ( "BadExplode" )  )  {     var foreachOutput2 = squirrelForEach( actor [ "BadExplode" ]  );     while(true)     {        foreachOutput2.next();        if (foreachOutput2.isDone()) break; i = foreachOutput2.getValue();  { 
   if ( hitTest ( shape , i . shape )  )  { 
  hurtfire (  )  ; 
  } 
   
   } 
      }  }  
-  if ( actor . rawin ( "FlameBreath" )  )  {     var foreachOutput = squirrelForEach ( actor [ "FlameBreath" ]  ) ;     while ( true )     {        foreachOutput . next ( ) ;        if ( foreachOutput . isDone ( ) ) break ; i = foreachOutput . getValue ( ) ;  { 
+  if ( actor . rawin ( "FlameBreath" )  )  {     var foreachOutput3 = squirrelForEach( actor [ "FlameBreath" ]  );     while(true)     {        foreachOutput3.next();        if (foreachOutput3.isDone()) break; i = foreachOutput3.getValue();  { 
   if ( hitTest ( shape , i . shape )  )  { 
  hurtfire (  )  ; 
 deleteActor ( i . id )  ; 
@@ -59,14 +59,14 @@ deleteActor ( i . id )  ;
   
   } 
      }  }  
-  if ( actor . rawin ( "ExplodeF" )  )  {     var foreachOutput = squirrelForEach ( actor [ "ExplodeF" ]  ) ;     while ( true )     {        foreachOutput . next ( ) ;        if ( foreachOutput . isDone ( ) ) break ; i = foreachOutput . getValue ( ) ;  { 
+  if ( actor . rawin ( "ExplodeF" )  )  {     var foreachOutput4 = squirrelForEach( actor [ "ExplodeF" ]  );     while(true)     {        foreachOutput4.next();        if (foreachOutput4.isDone()) break; i = foreachOutput4.getValue();  { 
   if ( hitTest ( shape , i . shape )  && i . frame < 3 )  { 
  hurtfire (  )  ; 
  } 
   
   } 
      }  }  
-  if ( actor . rawin ( "Iceball" )  )  {     var foreachOutput = squirrelForEach ( actor [ "Iceball" ]  ) ;     while ( true )     {        foreachOutput . next ( ) ;        if ( foreachOutput . isDone ( ) ) break ; i = foreachOutput . getValue ( ) ;  { 
+  if ( actor . rawin ( "Iceball" )  )  {     var foreachOutput5 = squirrelForEach( actor [ "Iceball" ]  );     while(true)     {        foreachOutput5.next();        if (foreachOutput5.isDone()) break; i = foreachOutput5.getValue();  { 
   if ( hitTest ( shape , i . shape )  )  { 
  hurtice (  )  ; 
 deleteActor ( i . id )  ; 
@@ -74,7 +74,7 @@ deleteActor ( i . id )  ;
   
   } 
      }  }  
-  if ( actor . rawin ( "FireballK" )  )  {     var foreachOutput = squirrelForEach ( actor [ "FireballK" ]  ) ;     while ( true )     {        foreachOutput . next ( ) ;        if ( foreachOutput . isDone ( ) ) break ; i = foreachOutput . getValue ( ) ;  { 
+  if ( actor . rawin ( "FireballK" )  )  {     var foreachOutput6 = squirrelForEach( actor [ "FireballK" ]  );     while(true)     {        foreachOutput6.next();        if (foreachOutput6.isDone()) break; i = foreachOutput6.getValue();  { 
   if ( hitTest ( shape , i . shape )  )  { 
  newActor ( ExplodeF , i . x , i . y )  ; 
 deleteActor ( i . id )  ; 
@@ -82,7 +82,7 @@ deleteActor ( i . id )  ;
   
   } 
      }  }  
-  if ( actor . rawin ( "ExplodeN" )  )  {     var foreachOutput = squirrelForEach ( actor [ "ExplodeN" ]  ) ;     while ( true )     {        foreachOutput . next ( ) ;        if ( foreachOutput . isDone ( ) ) break ; i = foreachOutput . getValue ( ) ;  { 
+  if ( actor . rawin ( "ExplodeN" )  )  {     var foreachOutput7 = squirrelForEach( actor [ "ExplodeN" ]  );     while(true)     {        foreachOutput7.next();        if (foreachOutput7.isDone()) break; i = foreachOutput7.getValue();  { 
   if ( hitTest ( shape , i . shape )  && i . frame < 3 )  { 
  hurtblast (  )  ; 
  } 
@@ -814,7 +814,7 @@ frame += 0.2 ;
   } 
   
   if ( frame >= 1 )  { 
-  if ( actor . rawin ( "TNT" )  )  {     var foreachOutput = squirrelForEach ( actor [ "TNT" ]  ) ;     while ( true )     {        foreachOutput . next ( ) ;        if ( foreachOutput . isDone ( ) ) break ; i = foreachOutput . getValue ( ) ;  { 
+  if ( actor . rawin ( "TNT" )  )  {     var foreachOutput8 = squirrelForEach( actor [ "TNT" ]  );     while(true)     {        foreachOutput8.next();        if (foreachOutput8.isDone()) break; i = foreachOutput8.getValue();  { 
   if ( hitTest ( shape , i . shape )  )  { 
  newActor ( BadExplode , i . x , i . y )  ; 
 tileSetSolid ( i . x , i . y , 0 )  ; 
@@ -823,7 +823,7 @@ deleteActor ( i . id )  ;
   
   } 
      }  }  
-  if ( actor . rawin ( "TNTALT" )  )  {     var foreachOutput = squirrelForEach ( actor [ "TNTALT" ]  ) ;     while ( true )     {        foreachOutput . next ( ) ;        if ( foreachOutput . isDone ( ) ) break ; i = foreachOutput . getValue ( ) ;  { 
+  if ( actor . rawin ( "TNTALT" )  )  {     var foreachOutput9 = squirrelForEach( actor [ "TNTALT" ]  );     while(true)     {        foreachOutput9.next();        if (foreachOutput9.isDone()) break; i = foreachOutput9.getValue();  { 
   if ( hitTest ( shape , i . shape )  )  { 
  newActor ( BadExplode , i . x , i . y )  ; 
 deleteActor ( i . id )  ; 
@@ -2193,7 +2193,7 @@ frame += 0.1 ;
   } 
   
   if ( frame >= 1 )  { 
-  if ( actor . rawin ( "WoodBlock" )  )  {     var foreachOutput = squirrelForEach ( actor [ "WoodBlock" ]  ) ;     while ( true )     {        foreachOutput . next ( ) ;        if ( foreachOutput . isDone ( ) ) break ; i = foreachOutput . getValue ( ) ;  { 
+  if ( actor . rawin ( "WoodBlock" )  )  {     var foreachOutput10 = squirrelForEach( actor [ "WoodBlock" ]  );     while(true)     {        foreachOutput10.next();        if (foreachOutput10.isDone()) break; i = foreachOutput10.getValue();  { 
   if ( hitTest ( shape , i . shape )  )  { 
  newActor ( WoodChunks , i . x , i . y )  ; 
 tileSetSolid ( i . x , i . y , 0 )  ; 
@@ -2766,7 +2766,7 @@ gvPlayer . frame = gvPlayer . anJumpU [ 0 ]  ;
   
  squish = true ; 
  } ;  returnVal . hurtblast = function (  ) {  var c = newActor ( DeadNME , x , y )  ;
- actor [ c ]  . sprite = sprDeathcap ; 
+ actor [ c ]  . sprite = sprWildcap ; 
 actor [ c ]  . vspeed =  - 4 ; 
 actor [ c ]  . hspeed =  ( 4 / 16 )  ; 
 actor [ c ]  . spin =  ( 4 * 7 )  ; 
@@ -2778,7 +2778,7 @@ playSound ( sndKick , 0 )  ;
   } ;  returnVal . hurtfire = function (  ) { newActor ( Flame , x , y - 1 )  ; 
 deleteActor ( id )  ; 
 playSound ( sndFlame , 0 )  ; 
- if ( randInt ( 50 )  == 0 )  { 
+ if ( randInt ( 40 )  == 0 )  { 
   var a = actor [ newActor ( MuffinRed , x , y )  ]  ;
  a . vspeed =  - 2 ; 
  } 

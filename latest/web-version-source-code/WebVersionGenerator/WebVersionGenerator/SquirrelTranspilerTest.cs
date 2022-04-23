@@ -25,6 +25,12 @@ namespace WebVersionGenerator
 
 			TestTranspilation(
 				@"
+					x = { ""a"": 3, ""b"": 5 }
+				",
+				@"x = { ""a"": 3, ""b"": 5 };");
+
+			TestTranspilation(
+				@"
 					a.push(
 						{
 							a = 3,

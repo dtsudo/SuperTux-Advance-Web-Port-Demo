@@ -265,7 +265,7 @@ gvMap . shape . h = 8.0 ;
   if (  squirrelTypeOf ( shape )  == "Cir" ) ns = Cir ( _x + shape . ox , _y + shape . oy , shape . r )  ; 
  
   if ( actor . rawin ( "Water" )  )  { 
-  {     var foreachOutput = squirrelForEach ( actor [ "Water" ]  ) ;     while ( true )     {        foreachOutput . next ( ) ;        if ( foreachOutput . isDone ( ) ) break ; i = foreachOutput . getValue ( ) ;  { 
+  {     var foreachOutput1 = squirrelForEach( actor [ "Water" ]  );     while(true)     {        foreachOutput1.next();        if (foreachOutput1.isDone()) break; i = foreachOutput1.getValue();  { 
   if ( hitTest ( ns , i . shape )  )  return true ;
   
   } 

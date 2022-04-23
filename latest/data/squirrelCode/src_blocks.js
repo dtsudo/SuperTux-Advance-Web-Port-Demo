@@ -94,7 +94,7 @@ playSoundChannel ( sndBump , 0 , 2 )  ;
   
   } 
   
-  if ( actor . rawin ( "BadExplode" )  )  {     var foreachOutput = squirrelForEach ( actor [ "BadExplode" ]  ) ;     while ( true )     {        foreachOutput . next ( ) ;        if ( foreachOutput . isDone ( ) ) break ; i = foreachOutput . getValue ( ) ;  { 
+  if ( actor . rawin ( "BadExplode" )  )  {     var foreachOutput1 = squirrelForEach( actor [ "BadExplode" ]  );     while(true)     {        foreachOutput1.next();        if (foreachOutput1.isDone()) break; i = foreachOutput1.getValue();  { 
   if ( hitTest ( shape , i . shape )  && i . frame < 1 && vspeed == 0 )  { 
   if ( coins <= 1 )  { 
  deleteActor ( id )  ; 
@@ -116,7 +116,7 @@ playSoundChannel ( sndBump , 0 , 2 )  ;
   
   } 
      }  }  
-  if ( actor . rawin ( "ExplodeF" )  )  {     var foreachOutput = squirrelForEach ( actor [ "ExplodeF" ]  ) ;     while ( true )     {        foreachOutput . next ( ) ;        if ( foreachOutput . isDone ( ) ) break ; i = foreachOutput . getValue ( ) ;  { 
+  if ( actor . rawin ( "ExplodeF" )  )  {     var foreachOutput2 = squirrelForEach( actor [ "ExplodeF" ]  );     while(true)     {        foreachOutput2.next();        if (foreachOutput2.isDone()) break; i = foreachOutput2.getValue();  { 
   if ( hitTest ( shape , i . shape )  && i . frame < 1 && vspeed == 0 )  { 
   if ( coins <= 1 )  { 
  deleteActor ( id )  ; 
@@ -138,7 +138,7 @@ playSoundChannel ( sndBump , 0 , 2 )  ;
   
   } 
      }  }  
-  if ( actor . rawin ( "ExplodeN" )  )  {     var foreachOutput = squirrelForEach ( actor [ "ExplodeN" ]  ) ;     while ( true )     {        foreachOutput . next ( ) ;        if ( foreachOutput . isDone ( ) ) break ; i = foreachOutput . getValue ( ) ;  { 
+  if ( actor . rawin ( "ExplodeN" )  )  {     var foreachOutput3 = squirrelForEach( actor [ "ExplodeN" ]  );     while(true)     {        foreachOutput3.next();        if (foreachOutput3.isDone()) break; i = foreachOutput3.getValue();  { 
   if ( hitTest ( shape , i . shape )  && i . frame < 1 && vspeed == 0 )  { 
   if ( coins <= 1 )  { 
  deleteActor ( id )  ; 
@@ -212,7 +212,7 @@ playSound ( sndBump , 0 )  ;
   
   } 
   
-  if ( actor . rawin ( "Fireball" )  )  {     var foreachOutput = squirrelForEach ( actor [ "Fireball" ]  ) ;     while ( true )     {        foreachOutput . next ( ) ;        if ( foreachOutput . isDone ( ) ) break ; i = foreachOutput . getValue ( ) ;  if ( hitTest ( fireshape , i . shape )  )  { 
+  if ( actor . rawin ( "Fireball" )  )  {     var foreachOutput4 = squirrelForEach( actor [ "Fireball" ]  );     while(true)     {        foreachOutput4.next();        if (foreachOutput4.isDone()) break; i = foreachOutput4.getValue();  if ( hitTest ( fireshape , i . shape )  )  { 
  tileSetSolid ( x , y , oldsolid )  ; 
 deleteActor ( id )  ; 
 deleteActor ( i . id )  ; 
@@ -221,7 +221,7 @@ playSound ( sndFlame , 0 )  ;
  } 
   
      }  }  
-  if ( actor . rawin ( "FlameBreath" )  )  {     var foreachOutput = squirrelForEach ( actor [ "FlameBreath" ]  ) ;     while ( true )     {        foreachOutput . next ( ) ;        if ( foreachOutput . isDone ( ) ) break ; i = foreachOutput . getValue ( ) ;  if ( hitTest ( fireshape , i . shape )  )  { 
+  if ( actor . rawin ( "FlameBreath" )  )  {     var foreachOutput5 = squirrelForEach( actor [ "FlameBreath" ]  );     while(true)     {        foreachOutput5.next();        if (foreachOutput5.isDone()) break; i = foreachOutput5.getValue();  if ( hitTest ( fireshape , i . shape )  )  { 
  tileSetSolid ( x , y , oldsolid )  ; 
 deleteActor ( id )  ; 
 deleteActor ( i . id )  ; 
@@ -230,7 +230,7 @@ playSound ( sndFlame , 0 )  ;
  } 
   
      }  }  
-  if ( actor . rawin ( "ExplodeN" )  )  {     var foreachOutput = squirrelForEach ( actor [ "ExplodeN" ]  ) ;     while ( true )     {        foreachOutput . next ( ) ;        if ( foreachOutput . isDone ( ) ) break ; i = foreachOutput . getValue ( ) ;  if ( hitTest ( fireshape , i . shape )  )  { 
+  if ( actor . rawin ( "ExplodeN" )  )  {     var foreachOutput6 = squirrelForEach( actor [ "ExplodeN" ]  );     while(true)     {        foreachOutput6.next();        if (foreachOutput6.isDone()) break; i = foreachOutput6.getValue();  if ( hitTest ( fireshape , i . shape )  )  { 
  tileSetSolid ( x , y , oldsolid )  ; 
 deleteActor ( id )  ; 
 newActor ( IceChunks , x , y )  ; 
@@ -239,7 +239,7 @@ playSound ( sndFlame , 0 )  ;
  } 
   
      }  }  
-  if ( actor . rawin ( "ExplodeF" )  )  {     var foreachOutput = squirrelForEach ( actor [ "ExplodeF" ]  ) ;     while ( true )     {        foreachOutput . next ( ) ;        if ( foreachOutput . isDone ( ) ) break ; i = foreachOutput . getValue ( ) ;  if ( hitTest ( fireshape , i . shape )  )  { 
+  if ( actor . rawin ( "ExplodeF" )  )  {     var foreachOutput7 = squirrelForEach( actor [ "ExplodeF" ]  );     while(true)     {        foreachOutput7.next();        if (foreachOutput7.isDone()) break; i = foreachOutput7.getValue();  if ( hitTest ( fireshape , i . shape )  )  { 
  tileSetSolid ( x , y , oldsolid )  ; 
 deleteActor ( id )  ; 
 newActor ( IceChunks , x , y )  ; 
@@ -522,7 +522,7 @@ Checkpoint =  function ( ) { var returnVal = { constructor: function(){} } ;  re
    baseConstructor  ( _x , _y )  ; 
 shape = Rec ( x , y + 16 , 10 , 16 , 0 )  ; 
  } ;  returnVal . run = function (  ) {  if ( gvPlayer && found == false )  if ( hitTest ( shape , gvPlayer . shape )  )  { 
-  {     var foreachOutput = squirrelForEach ( actor [ "Checkpoint" ]  ) ;     while ( true )     {        foreachOutput . next ( ) ;        if ( foreachOutput . isDone ( ) ) break ; i = foreachOutput . getValue ( ) ;  { 
+  {     var foreachOutput8 = squirrelForEach( actor [ "Checkpoint" ]  );     while(true)     {        foreachOutput8.next();        if (foreachOutput8.isDone()) break; i = foreachOutput8.getValue();  { 
  i . found = false ; 
  } 
      }  } found = true ; 
@@ -583,7 +583,7 @@ playSound ( sndFizz , 0 )  ;
   
   } 
   
-  if ( actor . rawin ( "Fireball" )  )  {     var foreachOutput = squirrelForEach ( actor [ "Fireball" ]  ) ;     while ( true )     {        foreachOutput . next ( ) ;        if ( foreachOutput . isDone ( ) ) break ; i = foreachOutput . getValue ( ) ;  if ( hitTest ( fireshape , i . shape )  )  { 
+  if ( actor . rawin ( "Fireball" )  )  {     var foreachOutput9 = squirrelForEach( actor [ "Fireball" ]  );     while(true)     {        foreachOutput9.next();        if (foreachOutput9.isDone()) break; i = foreachOutput9.getValue();  if ( hitTest ( fireshape , i . shape )  )  { 
  tileSetSolid ( x , y , 0 )  ; 
 deleteActor ( id )  ; 
 newActor ( BadExplode , x , y )  ; 
@@ -591,7 +591,7 @@ deleteActor ( i . id )  ;
  } 
   
      }  }  
-  if ( actor . rawin ( "FlameBreath" )  )  {     var foreachOutput = squirrelForEach ( actor [ "FlameBreath" ]  ) ;     while ( true )     {        foreachOutput . next ( ) ;        if ( foreachOutput . isDone ( ) ) break ; i = foreachOutput . getValue ( ) ;  if ( hitTest ( fireshape , i . shape )  )  { 
+  if ( actor . rawin ( "FlameBreath" )  )  {     var foreachOutput10 = squirrelForEach( actor [ "FlameBreath" ]  );     while(true)     {        foreachOutput10.next();        if (foreachOutput10.isDone()) break; i = foreachOutput10.getValue();  if ( hitTest ( fireshape , i . shape )  )  { 
  tileSetSolid ( x , y , 0 )  ; 
 deleteActor ( id )  ; 
 newActor ( BadExplode , x , y )  ; 
@@ -687,7 +687,7 @@ game . colorswitch [ this . color ] = true ;
  
   else dostr ( "saveGame()" )  ; 
  
-  if ( actor . rawin ( "ColorBlock" )  )  {     var foreachOutput = squirrelForEach ( actor [ "ColorBlock" ]  ) ;     while ( true )     {        foreachOutput . next ( ) ;        if ( foreachOutput . isDone ( ) ) break ; i = foreachOutput . getValue ( ) ;  { 
+  if ( actor . rawin ( "ColorBlock" )  )  {     var foreachOutput11 = squirrelForEach( actor [ "ColorBlock" ]  );     while(true)     {        foreachOutput11.next();        if (foreachOutput11.isDone()) break; i = foreachOutput11.getValue();  { 
  i . filltile (  )  ; 
  } 
      }  }  
@@ -924,7 +924,7 @@ shape = Rec ( x , y + 2 , 8 , 8 , 0 )  ;
 slideshape = Rec ( x , y - 1 , 12 , 8 , 0 )  ; 
 fireshape = Rec ( x , y , 16 , 16 , 0 )  ; 
 tileSetSolid ( x , y , 1 )  ; 
- } ;  returnVal . run = function (  ) {  if ( actor . rawin ( "Fireball" )  )  {     var foreachOutput = squirrelForEach ( actor [ "Fireball" ]  ) ;     while ( true )     {        foreachOutput . next ( ) ;        if ( foreachOutput . isDone ( ) ) break ; i = foreachOutput . getValue ( ) ;  if ( hitTest ( fireshape , i . shape )  )  { 
+ } ;  returnVal . run = function (  ) {  if ( actor . rawin ( "Fireball" )  )  {     var foreachOutput12 = squirrelForEach( actor [ "Fireball" ]  );     while(true)     {        foreachOutput12.next();        if (foreachOutput12.isDone()) break; i = foreachOutput12.getValue();  if ( hitTest ( fireshape , i . shape )  )  { 
  tileSetSolid ( x , y , 0 )  ; 
 deleteActor ( id )  ; 
 deleteActor ( i . id )  ; 
@@ -933,7 +933,7 @@ playSound ( sndFlame , 0 )  ;
  } 
   
      }  }  
-  if ( actor . rawin ( "ExplodeF" )  )  {     var foreachOutput = squirrelForEach ( actor [ "ExplodeF" ]  ) ;     while ( true )     {        foreachOutput . next ( ) ;        if ( foreachOutput . isDone ( ) ) break ; i = foreachOutput . getValue ( ) ;  if ( hitTest ( fireshape , i . shape )  )  { 
+  if ( actor . rawin ( "ExplodeF" )  )  {     var foreachOutput13 = squirrelForEach( actor [ "ExplodeF" ]  );     while(true)     {        foreachOutput13.next();        if (foreachOutput13.isDone()) break; i = foreachOutput13.getValue();  if ( hitTest ( fireshape , i . shape )  )  { 
  tileSetSolid ( x , y , 0 )  ; 
 deleteActor ( id )  ; 
 newActor ( Flame , x , y )  ; 
@@ -941,7 +941,7 @@ playSound ( sndFlame , 0 )  ;
  } 
   
      }  }  
-  if ( actor . rawin ( "Flame" )  )  {     var foreachOutput = squirrelForEach ( actor [ "Flame" ]  ) ;     while ( true )     {        foreachOutput . next ( ) ;        if ( foreachOutput . isDone ( ) ) break ; i = foreachOutput . getValue ( ) ;  if ( inDistance2 ( x , y , i . x , i . y , 20 )  && i . frame >= 2 )  { 
+  if ( actor . rawin ( "Flame" )  )  {     var foreachOutput14 = squirrelForEach( actor [ "Flame" ]  );     while(true)     {        foreachOutput14.next();        if (foreachOutput14.isDone()) break; i = foreachOutput14.getValue();  if ( inDistance2 ( x , y , i . x , i . y , 20 )  && i . frame >= 2 )  { 
  tileSetSolid ( x , y , 0 )  ; 
 deleteActor ( id )  ; 
 newActor ( Flame , x , y )  ; 

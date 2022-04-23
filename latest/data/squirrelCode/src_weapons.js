@@ -201,7 +201,7 @@ shape = Cir ( x , y , 16 )  ;
 drawLightEx ( sprLightFire , 0 , x - camx , y - camy , 0 , 0 , 0.75 -  ( frame / 10.0 )  , 0.75 -  ( frame / 10.0 )  )  ; 
 frame += 0.2 ; 
  if ( frame >= 1 )  { 
-  if ( actor . rawin ( "TNT" )  )  {     var foreachOutput = squirrelForEach ( actor [ "TNT" ]  ) ;     while ( true )     {        foreachOutput . next ( ) ;        if ( foreachOutput . isDone ( ) ) break ; i = foreachOutput . getValue ( ) ;  { 
+  if ( actor . rawin ( "TNT" )  )  {     var foreachOutput1 = squirrelForEach( actor [ "TNT" ]  );     while(true)     {        foreachOutput1.next();        if (foreachOutput1.isDone()) break; i = foreachOutput1.getValue();  { 
   if ( hitTest ( shape , i . shape )  )  { 
  newActor ( BadExplode , i . x , i . y )  ; 
 tileSetSolid ( i . x , i . y , 0 )  ; 

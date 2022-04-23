@@ -5,6 +5,8 @@ window.superTuxAdvanceWebVersion.squirrelFiles['src/gmplay.nut'] = function () {
 
 
 gvInfoBox = "" ; 
+gvInfoLast = "" ; 
+gvInfoStep = 0 ; 
 gvLangObj = "" ; 
 mapActor =  {  }  ; 
 startPlay =  function ( level ) {  if (  ! fileExists ( level )  )  return ; 
@@ -55,7 +57,7 @@ tilef = gvMap . tilef [ i ]  ;
   } 
   
   var actlayer =  - 1 ;
-  {     var foreachOutput = squirrelForEach ( gvMap . data . layers ) ;     while ( true )     {        foreachOutput . next ( ) ;        if ( foreachOutput . isDone ( ) ) break ; i = foreachOutput . getValue ( ) ;  { 
+  {     var foreachOutput1 = squirrelForEach( gvMap . data . layers );     while(true)     {        foreachOutput1.next();        if (foreachOutput1.isDone()) break; i = foreachOutput1.getValue();  { 
   if ( i [ "type" ]  == "objectgroup" && i [ "name" ]  == "actor" )  { 
  actlayer = i ; 
  break ;  } 
@@ -66,7 +68,7 @@ tilef = gvMap . tilef [ i ]  ;
  return ; 
   } 
   
-  {     var foreachOutput = squirrelForEach ( actlayer . objects ) ;     while ( true )     {        foreachOutput . next ( ) ;        if ( foreachOutput . isDone ( ) ) break ; i = foreachOutput . getValue ( ) ;  { 
+  {     var foreachOutput2 = squirrelForEach( actlayer . objects );     while(true)     {        foreachOutput2.next();        if (foreachOutput2.isDone()) break; i = foreachOutput2.getValue();  { 
   if ( i . rawin ( "gid" )  )  { 
   var n = i . gid - tilef ;
   var c = 0 ;
@@ -267,7 +269,7 @@ camy = 0 ;
   
  gvGameMode = gmPlay ; 
 print ( "Running level code..." )  ; 
- if ( gvMap . data . rawin ( "properties" )  )  {     var foreachOutput = squirrelForEach ( gvMap . data . properties ) ;     while ( true )     {        foreachOutput . next ( ) ;        if ( foreachOutput . isDone ( ) ) break ; i = foreachOutput . getValue ( ) ;  { 
+ if ( gvMap . data . rawin ( "properties" )  )  {     var foreachOutput3 = squirrelForEach( gvMap . data . properties );     while(true)     {        foreachOutput3.next();        if (foreachOutput3.isDone()) break; i = foreachOutput3.getValue();  { 
   if ( i . name == "code" ) dostr ( i . value )  ; 
  
   } 
@@ -377,7 +379,7 @@ gvMap . drawTiles ( floor (  - camx )  , floor (  - camy )  , floor ( camx / 16 
   
  runActors (  )  ; 
 drawZList ( 8 )  ; 
- if ( actor . rawin ( "Water" )  )  {     var foreachOutput = squirrelForEach ( actor [ "Water" ]  ) ;     while ( true )     {        foreachOutput . next ( ) ;        if ( foreachOutput . isDone ( ) ) break ; i = foreachOutput . getValue ( ) ;  { 
+ if ( actor . rawin ( "Water" )  )  {     var foreachOutput4 = squirrelForEach( actor [ "Water" ]  );     while(true)     {        foreachOutput4.next();        if (foreachOutput4.isDone()) break; i = foreachOutput4.getValue();  { 
  i . draw (  )  ; 
  } 
      }  }  
@@ -386,7 +388,7 @@ drawZList ( 8 )  ;
  
   else gvMap . drawTiles ( floor (  - camx )  , floor (  - camy )  , floor ( camx / 16 )  - 3 , floor ( camy / 16 )  ,  ( screenW (  )  / 16 )  + 5 ,  ( screenH (  )  / 16 )  + 2 , "fg" )  ; 
  
-  if ( actor . rawin ( "SecretWall" )  )  {     var foreachOutput = squirrelForEach ( actor [ "SecretWall" ]  ) ;     while ( true )     {        foreachOutput . next ( ) ;        if ( foreachOutput . isDone ( ) ) break ; i = foreachOutput . getValue ( ) ;  { 
+  if ( actor . rawin ( "SecretWall" )  )  {     var foreachOutput5 = squirrelForEach( actor [ "SecretWall" ]  );     while(true)     {        foreachOutput5.next();        if (foreachOutput5.isDone()) break; i = foreachOutput5.getValue();  { 
  i . draw (  )  ; 
  } 
      }  }  
@@ -394,7 +396,12 @@ drawZList ( 8 )  ;
  
  setDrawTarget ( gvScreen )  ; 
 drawImage ( gvPlayScreen , 0 , 0 )  ; 
- if ( gvInfoBox == "" )  { 
+ if ( gvInfoBox != gvInfoLast )  { 
+ gvInfoLast = gvInfoBox ; 
+gvInfoStep = 0 ; 
+ } 
+  
+  if ( gvInfoBox == "" )  { 
   for (  var i = 0 ;
  i < 4 - game . difficulty ; i ++  )  { 
  drawSprite ( sprEnergy , 2 , 8 +  ( 16 * i )  , 24 )  ; 
@@ -509,6 +516,8 @@ kx += 16 ;
   } 
   
   else  { 
+  if ( gvInfoStep < gvInfoBox . len (  )  ) gvInfoStep ++  ; 
+ 
   var ln = 3 ;
   for (  var i = 0 ;
  i < gvInfoBox . len (  )  ; i ++  )  { 
@@ -516,8 +525,8 @@ kx += 16 ;
  
   } 
  setDrawColor ( 0x000000d0 )  ; 
-drawRec ( 0 , 0 , screenW (  )  , 8 * ln , true )  ; 
-drawText ( font , 8 , 8 , gvInfoBox )  ; 
+drawRec ( 0 , 0 , screenW (  )  , 8 * max ( ln , 7 )  , true )  ; 
+drawText ( font , 8 , 8 , gvInfoBox . slice ( 0 , gvInfoStep )  )  ; 
  } 
   
  drawDebug (  )  ; 
@@ -531,16 +540,15 @@ drawText ( font , 8 , 8 , gvInfoBox )  ;
   
  resetDrawTarget (  )  ; 
 drawImage ( gvScreen , 0 , 0 )  ; 
- if ( game . berries > 0 && game . berries % 16 == 0 && game . health < game . maxHealth )  { 
+ if ( game . berries > 0 && game . berries % 16 == 0 )  { 
+  if ( game . health < game . maxHealth )  { 
  game . health ++  ; 
 game . berries = 0 ; 
  } 
   
-  if ( gvPlayer )  if ( game . berries == 64 )  { 
- game . berries = 0 ; 
-newActor ( Starnyan , gvPlayer . x , gvPlayer . y )  ; 
- } 
-  
+  else game . berries --  ; 
+ 
+  } 
   
   if ( game . health < 0 ) game . health = 0 ; 
  

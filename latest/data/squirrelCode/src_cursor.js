@@ -13,7 +13,7 @@ updateCursor =  function (  ) {  if (  ! config . showcursor )  return ;
   
  lastMouseX = mouseX (  )  ; 
 lastMouseY = mouseY (  )  ; 
- {     var foreachOutput = squirrelForEach ( menuItemsPos ) ;     while ( true )     {        foreachOutput . next ( ) ;        if ( foreachOutput . isDone ( ) ) break ; pos = foreachOutput . getValue ( ) ;  { 
+ {     var foreachOutput1 = squirrelForEach( menuItemsPos );     while(true)     {        foreachOutput1.next();        if (foreachOutput1.isDone()) break; pos = foreachOutput1.getValue();  { 
   if ( mouseX (  )  >= pos . x - 3 && mouseX (  )  <= pos . x + pos . len - 3 && mouseY (  )  >= pos . y && mouseY (  )  <= pos . y + fontH )  { 
  cursor = pos . index ; 
  return ; 

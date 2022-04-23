@@ -4,7 +4,7 @@ if (!window.superTuxAdvanceWebVersion.squirrelFiles) window.superTuxAdvanceWebVe
 window.superTuxAdvanceWebVersion.squirrelFiles['src/global.nut'] = function () { 
 
 
-gvVersion = "0.1.1" ; 
+gvVersion = "0.1.2" ; 
 gvMap = 0 ; 
 gvGameMode = 0 ; 
 gvQuit = false ; 

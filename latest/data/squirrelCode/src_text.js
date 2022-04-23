@@ -10,7 +10,7 @@ textLineLen =  function ( _s , _l ) { _s = strip ( _s )  ;
   var newstr = "" ;
   var curline = "" ;
   var words = split ( _s , " " )  ;
-  {     var foreachOutput = squirrelForEach ( words ) ;     while ( true )     {        foreachOutput . next ( ) ;        if ( foreachOutput . isDone ( ) ) break ; i = foreachOutput . getValue ( ) ;  { 
+  {     var foreachOutput1 = squirrelForEach( words );     while(true)     {        foreachOutput1.next();        if (foreachOutput1.isDone()) break; i = foreachOutput1.getValue();  { 
   if ( i . len (  )  >= _l )  { 
  newstr += i ; 
 newstr += "\n" ; 
@@ -41,7 +41,7 @@ drawTextLen =  function ( _f , _x , _y , _s , _l ) { _s = strip ( _s )  ;
   var newstr = "" ;
   var curline = "" ;
   var words = split ( _s , " " )  ;
-  {     var foreachOutput = squirrelForEach ( words ) ;     while ( true )     {        foreachOutput . next ( ) ;        if ( foreachOutput . isDone ( ) ) break ; i = foreachOutput . getValue ( ) ;  { 
+  {     var foreachOutput2 = squirrelForEach( words );     while(true)     {        foreachOutput2.next();        if (foreachOutput2.isDone()) break; i = foreachOutput2.getValue();  { 
   if ( i . len (  )  >= _l )  { 
  newstr += i ; 
 newstr += "\n" ; 

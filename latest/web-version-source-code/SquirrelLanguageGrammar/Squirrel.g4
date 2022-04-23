@@ -154,6 +154,7 @@ objectLiteral
 	
 propertyAssignment
 	: id '=' exp
+	| str ':' exp
 	;
 	
 exp
