@@ -69,8 +69,7 @@ print("Loading Frostlands")
 		sprCoin = sprCoinN1
 		sprCoin5 = sprCoinN5
 		sprCoin10 = sprCoinN10
-	// webBrowserVersionChange: remove else branch (the variable sprCoinOG isn't defined anywhere)
-	} // else sprCoin = sprCoinOG
+		} 
 }
 
 //background shiz

@@ -19,12 +19,7 @@
 						name = (function (x) { return function () { return x }; })(data["name"])
 						func = (function (contribFolder, contribWorldmap) { return function() {
 							lastLevelsCounted = {"contribFolder":null, "completed":null, "total":null, "percentage":null}
-							game=clone(gameDefault)
-							game.completed.clear()
-							game.allCoins.clear()
-							game.allEnemies.clear()
-							game.allSecrets.clear()
-							game.bestTime.clear()
+							game=createNewGameObject()
 							game.file = contribFolder
 							game.path = "contrib/" + contribFolder + "/"
 							game.world = contribWorldmap

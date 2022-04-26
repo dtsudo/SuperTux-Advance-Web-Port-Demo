@@ -5,12 +5,7 @@ window.superTuxAdvanceWebVersion.squirrelFiles['src/save.nut'] = function () {
 
 
 newGame =  function ( f ) {  var newdif = game . difficulty ;
- game = clone ( gameDefault )  ; 
-game . completed . clear (  )  ; 
-game . allCoins . clear (  )  ; 
-game . allEnemies . clear (  )  ; 
-game . allSecrets . clear (  )  ; 
-game . bestTime . clear (  )  ; 
+ game = createNewGameObject (  )  ; 
 game . file = f ; 
 gvDoIGT = false ; 
 game . difficulty = newdif ; 
@@ -21,7 +16,7 @@ game . difficulty = newdif ;
 saveGame =  function (  ) { fileWrite ( "save/" + game . file . tostring (  )  + ".json" , jsonWrite ( game )  )  ; 
  }  ; 
 loadGame =  function ( f ) {  if ( fileExists ( "save/" + f . tostring (  )  + ".json" )  )  { 
- game = mergeTable ( gameDefault , jsonRead ( fileRead ( "save/" + f . tostring (  )  + ".json" )  )  )  ; 
+ game = mergeTable ( createNewGameObject (  )  , jsonRead ( fileRead ( "save/" + f . tostring (  )  + ".json" )  )  )  ; 
 startOverworld ( game . world )  ; 
  } 
   

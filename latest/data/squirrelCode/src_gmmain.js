@@ -6,7 +6,7 @@ window.superTuxAdvanceWebVersion.squirrelFiles['src/gmmain.nut'] = function () {
 
 startMain =  function (  ) { stopMusic (  )  ; 
 songPlay ( musTheme )  ; 
-game = clone ( gameDefault )  ; 
+game = createNewGameObject (  )  ; 
 drawBG = dbgUnderwater ; 
 gvGameMode = gmMain ; 
 actor =  {  }  ; 

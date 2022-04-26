@@ -151,7 +151,7 @@ const menuY = 40
 		name = function() { return gvLangObj["main-menu"]["credits"] },
 		func = function() { startCredits("res"); }
 		}
-	// webBrowserVersionChange: remove "quit" option
+	// webBrowserVersionChange: remove "quit" option 
 	//{
 	//	name = function() { return gvLangObj["main-menu"]["quit"] },
 	//	func = function() { gvQuit = 1 }

@@ -1065,7 +1065,6 @@
 				newActor(FlowerFire, x + hspeed, y + vspeed)
 				break
 			case 2:
-				// webBrowserVersionChange: add missing comma
 				newActor(FlowerIce, x + hspeed, y + vspeed)
 				break
 			case 3:
