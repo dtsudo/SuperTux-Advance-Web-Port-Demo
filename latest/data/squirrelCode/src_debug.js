@@ -61,6 +61,13 @@ gvKeyMythril = true ;
   
   } 
   
+  if ( keyDown ( k_lctrl )  || keyDown ( k_rctrl )  )  { 
+  if ( keyPress ( k_e )  )  { 
+ endGoal (  )  ; 
+ } 
+  
+  } 
+  
   if ( gvPlayer && mouseDown ( 0 )  )  { 
  gvPlayer . x = mouseX (  )  + camx ; 
 gvPlayer . y = mouseY (  )  + camy ; 

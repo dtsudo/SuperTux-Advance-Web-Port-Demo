@@ -579,7 +579,7 @@ game . weapon = 3 ;
  returnVal.constructor(...arguments); return returnVal ;  }  ; 
 FlyRefresh =  function ( ) { var returnVal = { constructor: function(){} } ;  returnVal = Actor ( 'DO_NOT_CALL_CONSTRUCTOR' ) ; var baseMethods = { ... returnVal }; var baseConstructor = returnVal.constructor;  
  with ( returnVal ) { 
-  returnVal . run = function (  ) {  if ( gvPlayer )  if ( inDistance2 ( gvPlayer . x , gvPlayer . y , x , y , 16 )  )  if ( gvPlayer . rawin ( "energy" )  && game . weapon == 3 ) gvPlayer . energy = 4 ; 
+  returnVal . run = function (  ) {  if ( gvPlayer )  if ( inDistance2 ( gvPlayer . x , gvPlayer . y , x , y , 16 )  )  if ( gvPlayer . rawin ( "energy" )  && game . weapon == 3 ) gvPlayer . energy = 8 ; 
  
   
   

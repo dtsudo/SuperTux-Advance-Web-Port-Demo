@@ -177,7 +177,16 @@ gvGameMode = gmOverworld ;
   }  , func :  function (  ) { saveGame (  )  ; 
 startMain (  )  ; 
  }  }  ]  ; 
-meOptions =  [  { name :  function (  ) {  return gvLangObj [ "options-menu" ]  [ "timers" ]  ;
+meOptions =  [  { name :  function (  ) {  var msg = gvLangObj [ "options-menu" ]  [ "cursor" ]  ;
+  if ( config . showcursor ) msg += gvLangObj [ "menu-commons" ]  [ "on" ]  ; 
+ 
+  else msg += gvLangObj [ "menu-commons" ]  [ "off" ]  ; 
+ 
+  return msg ;
+  }  , desc :  function (  ) {  return gvLangObj [ "options-menu-desc" ]  [ "cursor" ]  ;
+  }  , func :  function (  ) { config . showcursor =  ! config . showcursor ; 
+fileWrite ( "config.json" , jsonWrite ( config )  )  ; 
+ }  }  ,  { name :  function (  ) {  return gvLangObj [ "options-menu" ]  [ "timers" ]  ;
   }  , desc :  function (  ) {  return gvLangObj [ "options-menu-desc" ]  [ "timers" ]  ;
   }  , func :  function (  ) { menu = meTimers ; 
  }  }  ,  { name :  function (  ) {  var msg = gvLangObj [ "options-menu" ]  [ "autorun" ]  ;

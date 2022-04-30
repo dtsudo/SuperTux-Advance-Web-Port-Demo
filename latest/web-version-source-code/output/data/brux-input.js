@@ -157,7 +157,69 @@ window.js_left = 4;
 		
 		return false;
 	};
-			
+		
+	let mouseXPosition = 0;
+	let mouseYPosition = 0;
+		
+	let mouseMoveHandler = function (e) {
+		let canvas = window.superTuxAdvanceWebVersion.superTuxAdvanceCanvas;
+	
+		if (!canvas || !window.superTuxAdvanceWebVersion.superTuxAdvanceCanvasScalingFactor)
+			return;
+		
+		let xPosition = (e.pageX !== null && e.pageX !== undefined ? e.pageX : e.clientX) - canvas.offsetLeft;
+								
+		if (xPosition < -5)
+			xPosition = -5;
+		
+		if (xPosition > canvas.width * window.superTuxAdvanceWebVersion.superTuxAdvanceCanvasScalingFactor + 5)
+			xPosition = canvas.width * window.superTuxAdvanceWebVersion.superTuxAdvanceCanvasScalingFactor + 5;
+		
+		let yPosition = (e.pageY !== null && e.pageY !== undefined ? e.pageY : e.clientY) - canvas.offsetTop;
+		
+		if (yPosition < -5)
+			yPosition = -5;
+		
+		if (yPosition > canvas.height * window.superTuxAdvanceWebVersion.superTuxAdvanceCanvasScalingFactor + 5)
+			yPosition = canvas.height * window.superTuxAdvanceWebVersion.superTuxAdvanceCanvasScalingFactor + 5;
+		
+		mouseXPosition = xPosition;
+		mouseYPosition = yPosition;
+	};
+	
+	let isLeftMouseButtonPressed = false;
+	let isRightMouseButtonPressed = false;
+	let isLeftMouseButtonPressedLastFrame = false;
+	let isRightMouseButtonPressedLastFrame = false;
+	
+	let checkMouseButtonHandler = function (e) {
+		if ((e.buttons & 1) === 1)
+			isLeftMouseButtonPressed = true;
+		else
+			isLeftMouseButtonPressed = false;
+		
+		if ((e.buttons & 2) === 2)
+			isRightMouseButtonPressed = true;
+		else
+			isRightMouseButtonPressed = false;
+	};
+						
+	let disableContextMenu;
+	disableContextMenu = function () {
+		let canvas = window.superTuxAdvanceWebVersion.superTuxAdvanceCanvas;
+		if (!canvas) {
+			setTimeout(disableContextMenu, 50);
+			return;
+		}
+		
+		canvas.addEventListener("contextmenu", function (e) { e.preventDefault(); });
+	};
+	disableContextMenu();
+	
+	document.addEventListener("mousemove", function (e) { mouseMoveHandler(e); checkMouseButtonHandler(e); }, false);
+	document.addEventListener("mousedown", function (e) { checkMouseButtonHandler(e); }, false);
+	document.addEventListener("mouseup", function (e) { checkMouseButtonHandler(e); }, false);
+
 	if (!window.superTuxAdvanceWebVersion.functionsToInvokeOnUpdate)
 		window.superTuxAdvanceWebVersion.functionsToInvokeOnUpdate = [];
 			
@@ -166,6 +228,9 @@ window.js_left = 4;
 		for (let i = 0; i < keysBeingPressed.length; i++) {
 			keysBeingPressedLastFrame.push(keysBeingPressed[i]);
 		}
+		
+		isLeftMouseButtonPressedLastFrame = isLeftMouseButtonPressed;
+		isRightMouseButtonPressedLastFrame = isRightMouseButtonPressed;
 	});
 	
 	window.keyDown = function (bruxKey) {
@@ -194,24 +259,42 @@ window.js_left = 4;
 	};
 
 	window.mouseX = function () {
-		console.log("Warning: mouseX is not implemented");
+		if (!window.superTuxAdvanceWebVersion.superTuxAdvanceCanvasScalingFactor)
+			return 0;
+		return Math.floor(mouseXPosition / window.superTuxAdvanceWebVersion.superTuxAdvanceCanvasScalingFactor);
 	};
 
 	window.mouseY = function () {
-		console.log("Warning: mouseY is not implemented");
+		if (!window.superTuxAdvanceWebVersion.superTuxAdvanceCanvasScalingFactor)
+			return 0;
+		return Math.floor(mouseYPosition / window.superTuxAdvanceWebVersion.superTuxAdvanceCanvasScalingFactor);
 	};
 
 	window.mouseDown = function (b) {
-		console.log("Warning: mouseDown is not implemented");
+		if (b === 0)
+			return isLeftMouseButtonPressed;
+		else {
+			console.log("Warning: unrecognized mouseDown button - " + b);
+			return false;
+		}
 	};
 
 	window.mousePress = function (b) {
-		console.log("Warning: mousePress is not implemented");
+		if (b === 0)
+			return isLeftMouseButtonPressed && !isLeftMouseButtonPressedLastFrame;
+		else {
+			console.log("Warning: unrecognized mousePress button - " + b);
+			return false;
+		}
 	};
 
 	window.mouseRelease = function (b) {
-		// Commented out this log statement to avoid spamming the console
-		//console.log("Warning: mouseRelease is not implemented");
+		if (b === 0)
+			return !isLeftMouseButtonPressed && isLeftMouseButtonPressedLastFrame;
+		else {
+			console.log("Warning: unrecognized mouseRelease button - " + b);
+			return false;
+		}
 	};
 
 	window.getQuit = function () {

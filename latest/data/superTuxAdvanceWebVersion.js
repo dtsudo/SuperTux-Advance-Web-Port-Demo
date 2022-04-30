@@ -29,7 +29,7 @@
 		? parseInt(urlParams.get("height"), 10)
 		: 240;
 		
-	let superTuxAdvanceCanvasScalingFactor = urlParams.get("scalingfactor") !== null
+	window.superTuxAdvanceWebVersion.superTuxAdvanceCanvasScalingFactor = urlParams.get("scalingfactor") !== null
 		? parseInt(urlParams.get("scalingfactor"), 10)
 		: 3;
 	
@@ -50,9 +50,10 @@
 			window.superTuxAdvanceWebVersion.superTuxAdvanceCanvas = document.createElement("canvas");
 			window.superTuxAdvanceWebVersion.superTuxAdvanceCanvas.width = window.superTuxAdvanceWebVersion.superTuxAdvanceCanvasWidth;
 			window.superTuxAdvanceWebVersion.superTuxAdvanceCanvas.height = window.superTuxAdvanceWebVersion.superTuxAdvanceCanvasHeight;
-			window.superTuxAdvanceWebVersion.superTuxAdvanceCanvas.style.width = (window.superTuxAdvanceWebVersion.superTuxAdvanceCanvasWidth * superTuxAdvanceCanvasScalingFactor) + "px";
-			window.superTuxAdvanceWebVersion.superTuxAdvanceCanvas.style.height = (window.superTuxAdvanceWebVersion.superTuxAdvanceCanvasHeight * superTuxAdvanceCanvasScalingFactor) + "px";
+			window.superTuxAdvanceWebVersion.superTuxAdvanceCanvas.style.width = (window.superTuxAdvanceWebVersion.superTuxAdvanceCanvasWidth * window.superTuxAdvanceWebVersion.superTuxAdvanceCanvasScalingFactor) + "px";
+			window.superTuxAdvanceWebVersion.superTuxAdvanceCanvas.style.height = (window.superTuxAdvanceWebVersion.superTuxAdvanceCanvasHeight * window.superTuxAdvanceWebVersion.superTuxAdvanceCanvasScalingFactor) + "px";
 			window.superTuxAdvanceWebVersion.superTuxAdvanceCanvas.style["image-rendering"] = "pixelated";
+			window.superTuxAdvanceWebVersion.superTuxAdvanceCanvas.style.cursor = "none";
 			document.getElementById("superTuxAdvanceCanvasWrapper").appendChild(window.superTuxAdvanceWebVersion.superTuxAdvanceCanvas);
 			window.superTuxAdvanceWebVersion.superTuxAdvanceCanvasContext = window.superTuxAdvanceWebVersion.superTuxAdvanceCanvas.getContext("2d");
 			window.superTuxAdvanceWebVersion.superTuxAdvanceCanvasContext.imageSmoothingEnabled = false;

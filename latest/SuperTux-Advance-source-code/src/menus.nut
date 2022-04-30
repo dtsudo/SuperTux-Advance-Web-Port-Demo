@@ -213,17 +213,16 @@ const menuY = 40
 	//	desc = function() { return gvLangObj["options-menu-desc"]["joystick"] },
 	//	func = function() { menu = meJoybinds }
 	//},
-	// webBrowserVersionChange: remove "show mouse cursor" option
-	//{
-	//	name = function() {
-	//		local msg = gvLangObj["options-menu"]["cursor"]
-	//		if(config.showcursor) msg += gvLangObj["menu-commons"]["on"]
-	//		else msg += gvLangObj["menu-commons"]["off"]
-	//		return msg
-	//	},
-	//	desc = function() { return gvLangObj["options-menu-desc"]["cursor"] },
-	//	func = function() { config.showcursor = !config.showcursor; fileWrite("config.json", jsonWrite(config)) }
-	//},
+	{
+		name = function() {
+			local msg = gvLangObj["options-menu"]["cursor"]
+			if(config.showcursor) msg += gvLangObj["menu-commons"]["on"]
+			else msg += gvLangObj["menu-commons"]["off"]
+			return msg
+		},
+		desc = function() { return gvLangObj["options-menu-desc"]["cursor"] },
+		func = function() { config.showcursor = !config.showcursor; fileWrite("config.json", jsonWrite(config)) }
+	},
 	// webBrowserVersionChange: remove language option
 	//{
 	//	name = function() { return gvLangObj["options-menu"]["language"] },

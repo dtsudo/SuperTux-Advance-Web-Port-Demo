@@ -125,8 +125,7 @@
 	showglobaligt = false
 	// webBrowserVersionChange: set light to false
 	light = false
-	// webBrowserVersionChange: set showcursor to false
-	showcursor = false
+	showcursor = true
 	usefilter = false
 	soundVolume = 128
 	musicVolume = 128

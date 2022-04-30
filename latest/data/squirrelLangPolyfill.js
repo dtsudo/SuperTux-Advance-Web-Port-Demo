@@ -161,8 +161,7 @@ window.split = function (stringToDivide, separatorChar) {
 			break;
 		}
 		
-		if (index !== 0)
-			arr.push(stringToDivide.substring(0, index));
+		arr.push(stringToDivide.substring(0, index));
 		
 		stringToDivide = stringToDivide.substring(index+1);
 	}
