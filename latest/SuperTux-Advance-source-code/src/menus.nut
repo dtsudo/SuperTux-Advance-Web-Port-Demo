@@ -186,11 +186,10 @@ const menuY = 40
 		name = function() { return gvLangObj["pause-menu"]["save"]},
 		func = function() { saveGame(); playSound(sndHeal, 0); gvGameMode = gmOverworld }
 	},
-	// webBrowserVersionChange: remove "change character" option
-	//{
-	//	name = function() { return gvLangObj["pause-menu"]["character"]},
-	//	func = function() { pickChar() }
-	//},
+	{
+		name = function() { return gvLangObj["pause-menu"]["character"]},
+		func = function() { pickCharInitialize(); gvGameMode = pickChar }
+	},
 	{
 		name = function() { return gvLangObj["main-menu"]["options"] },
 		func = function() { menu = meOptions }

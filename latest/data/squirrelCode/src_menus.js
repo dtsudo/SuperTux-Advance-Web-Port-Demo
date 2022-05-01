@@ -171,6 +171,9 @@ mePauseOver =  [  { name :  function (  ) {  return gvLangObj [ "pause-menu" ]  
   }  , func :  function (  ) { saveGame (  )  ; 
 playSound ( sndHeal , 0 )  ; 
 gvGameMode = gmOverworld ; 
+ }  }  ,  { name :  function (  ) {  return gvLangObj [ "pause-menu" ]  [ "character" ]  ;
+  }  , func :  function (  ) { pickCharInitialize (  )  ; 
+gvGameMode = pickChar ; 
  }  }  ,  { name :  function (  ) {  return gvLangObj [ "main-menu" ]  [ "options" ]  ;
   }  , func :  function (  ) { menu = meOptions ; 
  }  }  ,  { name :  function (  ) {  return gvLangObj [ "pause-menu" ]  [ "quit-game" ]  ;
