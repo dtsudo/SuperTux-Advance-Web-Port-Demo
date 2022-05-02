@@ -39,6 +39,11 @@ window.bm_mod = 4;
 	};
 	
 	window.drawRec = function (x, y, width, height, solid) {
+		x = Math.floor(x);
+		y = Math.floor(y);
+		width = Math.floor(width) + 1;
+		height = Math.floor(height) + 1;
+		
 		let context = window.superTuxAdvanceWebVersion.superTuxAdvanceCanvases[window.superTuxAdvanceWebVersion.currentCanvas].context;
 		
 		let red = (graphicsDrawColor >> 24) & 0xff;
