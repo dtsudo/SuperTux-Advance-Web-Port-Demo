@@ -131,6 +131,12 @@ window.cos = function (x) {
 	return Math.cos(x);
 };
 
+window.fabs = function (num) {
+	if (num < 0)
+		return -num;
+	return num;
+};
+
 window.getroottable = function () {
 	return window;
 };

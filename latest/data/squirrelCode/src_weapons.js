@@ -319,6 +319,17 @@ shape = Rec ( x , y , 4 , 4 , 0 )  ;
   } ; 
  } 
  returnVal.constructor(...arguments); return returnVal ;  }  ; 
+Weapon =  function ( ) { var returnVal = { constructor: function(){} } ;  returnVal = PhysAct ( 'DO_NOT_CALL_CONSTRUCTOR' ) ; var baseMethods = { ... returnVal }; var baseConstructor = returnVal.constructor;  returnVal . power = 1 ; 
+ returnVal . element = 0 ; 
+ returnVal . piercing = 0 ; 
+ returnVal . owner = 0 ; 
+ returnVal . alignment = 0 ; 
+ 
+ with ( returnVal ) { 
+  returnVal . _typeof = function (  ) {  return "PlayerWep" ;
+  } ; 
+ } 
+ returnVal.constructor(...arguments); return returnVal ;  }  ; 
 
 
 

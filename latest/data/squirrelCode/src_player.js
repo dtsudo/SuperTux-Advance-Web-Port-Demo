@@ -32,6 +32,10 @@ Player =  function ( ) { var returnVal = { constructor: function(){} } ;  return
  returnVal . runSpeed = 3.0 ; 
  returnVal . accel = 0.2 ; 
  returnVal . friction = 0.1 ; 
+ returnVal . hurt = 0 ; 
+ returnVal . hurtType = "normal" ; 
+ returnVal . damageMult = null ; 
+ returnVal . blinking = 0 ; 
  returnVal . held = null ; 
  returnVal . routine = null ; 
  
@@ -39,10 +43,19 @@ Player =  function ( ) { var returnVal = { constructor: function(){} } ;  return
   returnVal . constructor = function ( x , y , _arr = null ) { if (arguments.length > 0 && arguments[0] === 'DO_NOT_CALL_CONSTRUCTOR') return;
 
    baseConstructor  ( x , y , _arr )  ; 
+damageMult =  { normal : 1.0 , fire : 1.0 , ice : 1.0 , earth : 1.0 , air : 1.0 , toxic : 1.0 , shock : 1.0 , water : 1.0 , light : 1.0 , dark : 1.0 }  ; 
  } ;  returnVal . run = function (  ) { animics (  )  ; 
  if ( routine != null ) routine (  )  ; 
  
-  } ;  returnVal . animics = function (  ) {  } ; 
+  } ;  returnVal . animics = function (  ) {  } ;  returnVal . checkHurt = function (  ) {  if (  ! blinking )  { 
+  if ( hurt )  { 
+  } 
+  
+  } 
+  
+  else blinking --  ; 
+ 
+  } ; 
  } 
  returnVal.constructor(...arguments); return returnVal ;  }  ; 
 

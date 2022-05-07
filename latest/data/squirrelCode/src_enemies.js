@@ -303,7 +303,7 @@ setDrawColor ( 0xff0000ff )  ;
   if ( gvPlayer . anim == gvPlayer . anSlide )  { 
   var c = newActor ( DeadNME , x , y )  ;
  actor [ c ]  . sprite = sprDeathcap ; 
-actor [ c ]  . vspeed =  - abs ( gvPlayer . hspeed )  ; 
+actor [ c ]  . vspeed =  - fabs ( gvPlayer . hspeed )  ; 
 actor [ c ]  . hspeed =  ( gvPlayer . hspeed / 16 )  ; 
 actor [ c ]  . spin =  ( gvPlayer . hspeed * 7 )  ; 
 actor [ c ]  . angle = 180 ; 
@@ -717,7 +717,7 @@ y -= 1.0 ;
   
   if (  ! placeFree ( x , y + 1 )  ) hspeed *= 0.9 ; 
  
-  if ( abs ( hspeed )  < 0.1 ) hspeed = 0.0 ; 
+  if ( fabs ( hspeed )  < 0.1 ) hspeed = 0.0 ; 
  
   if ( squishTime >= 150 )  { 
  deleteActor ( id )  ; 
@@ -862,9 +862,9 @@ vspeed =  - 3.0 ;
   
   if (  ! placeFree ( x , y + 1 )  ) vspeed =  - 3.0 ; 
  
-  if (  ! placeFree ( x + 2 , y - 2 )  &&  ! placeFree ( x + 2 , y )  ) hspeed =  - abs ( hspeed )  ; 
+  if (  ! placeFree ( x + 2 , y - 2 )  &&  ! placeFree ( x + 2 , y )  ) hspeed =  - fabs ( hspeed )  ; 
  
-  if (  ! placeFree ( x - 2 , y - 2 )  &&  ! placeFree ( x - 2 , y )  ) hspeed = abs ( hspeed )  ; 
+  if (  ! placeFree ( x - 2 , y - 2 )  &&  ! placeFree ( x - 2 , y )  ) hspeed = fabs ( hspeed )  ; 
  
  vspeed += 0.1 ; 
  if ( hspeed > 0 ) flip = 0 ; 
@@ -916,9 +916,9 @@ icebox =  - 1 ;
   
   } 
   
-  if ( x < 0 ) hspeed = abs ( hspeed )  ; 
+  if ( x < 0 ) hspeed = fabs ( hspeed )  ; 
  
-  if ( x > gvMap . w ) hspeed =  - abs ( hspeed )  ; 
+  if ( x > gvMap . w ) hspeed =  - fabs ( hspeed )  ; 
  
   } ;  returnVal . gethurt = function (  ) { newActor ( Poof , x , y )  ; 
 deleteActor ( id )  ; 
@@ -1209,7 +1209,7 @@ timer --  ;
 vspeed =  - 0.5 + randFloat ( 1 )  ; 
  if ( hspeed == 0 ) hspeed = 1 ; 
  
-  else hspeed *= 1 / abs ( hspeed )  ; 
+  else hspeed *= 1 / fabs ( hspeed )  ; 
  
   } 
   
@@ -1511,7 +1511,7 @@ timer --  ;
  
   if ( hspeed == 0 ) hspeed = 1 ; 
  
-  else hspeed *= 1 / abs ( hspeed )  ; 
+  else hspeed *= 1 / fabs ( hspeed )  ; 
  
  canjump = true ; 
  } 
@@ -1912,7 +1912,7 @@ shape = Rec ( x , y , 6 , 6 , 0 , 0 , 1 )  ;
  
   else vspeed /= 2 ; 
  
-  if ( chasing ) mspeed = abs ( hspeed )  ; 
+  if ( chasing ) mspeed = fabs ( hspeed )  ; 
  
   else mspeed = 0.75 ; 
  

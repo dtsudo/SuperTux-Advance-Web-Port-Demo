@@ -136,7 +136,7 @@ frame = anim [ 0 ]  ;
  } 
   
   break ;  case anWalk : frame += abs ( rspeed )  / 8 ; 
- if ( abs ( rspeed )  <= 0.1 || abs ( hspeed )  <= 0.1 ) anim = anStand ; 
+ if ( abs ( rspeed )  <= 0.1 || fabs ( hspeed )  <= 0.1 ) anim = anStand ; 
  
   if ( abs ( rspeed )  > 2.4 ) anim = anRun ; 
  
@@ -247,10 +247,10 @@ shape = shapeStand ;
   else slideframe += abs ( hspeed / 16.0 )  ; 
  
  frame = slideframe ; 
- if (  ! freeDown && hspeed != 0 )  if ( floor ( getFrames (  )  % 8 - abs ( hspeed )  )  == 0 || abs ( hspeed )  > 8 )  { 
-  if ( game . weapon == 1 ) newActor ( FlameTiny , x -  ( 8 *  ( hspeed / abs ( hspeed )  )  )  , y + 10 )  ; 
+ if (  ! freeDown && hspeed != 0 )  if ( floor ( getFrames (  )  % 8 - fabs ( hspeed )  )  == 0 || fabs ( hspeed )  > 8 )  { 
+  if ( game . weapon == 1 ) newActor ( FlameTiny , x -  ( 8 *  ( hspeed / fabs ( hspeed )  )  )  , y + 10 )  ; 
  
-  if ( game . weapon == 2 ) newActor ( Glimmer , x -  ( 12 *  ( hspeed / abs ( hspeed )  )  )  , y + 10 )  ; 
+  if ( game . weapon == 2 ) newActor ( Glimmer , x -  ( 12 *  ( hspeed / fabs ( hspeed )  )  )  , y + 10 )  ; 
  
   } 
   
@@ -273,7 +273,7 @@ frame = anim [ 0 ]  ;
  break ;  }  if ( anim != anClimb ) frame = wrap ( abs ( frame )  , anim [ 0 ]  , anim [ 1 ]  )  ; 
  
   if ( anim == anSlide || onIce (  )  )  { 
-  if (  ! placeFree ( x , y + 4 )  &&  ( abs ( hspeed )  < 8 ||  ( abs ( hspeed )  < 12 && game . weapon == 2 )  )  )  { 
+  if (  ! placeFree ( x , y + 4 )  &&  ( fabs ( hspeed )  < 8 ||  ( fabs ( hspeed )  < 12 && game . weapon == 2 )  )  )  { 
   if ( placeFree ( x + 4 , y + 2 )  ) hspeed += 0.25 ; 
  
   if ( placeFree ( x - 4 , y + 2 )  ) hspeed -= 0.25 ; 
@@ -282,10 +282,10 @@ frame = anim [ 0 ]  ;
  
   } 
   
-  else  if (  ! placeFree ( x , y + 8 )  &&  ( abs ( hspeed )  < 8 ||  ( abs ( hspeed )  < 12 && vspeed > 0 )  )  ) vspeed += 0.2 ; 
+  else  if (  ! placeFree ( x , y + 8 )  &&  ( fabs ( hspeed )  < 8 ||  ( fabs ( hspeed )  < 12 && vspeed > 0 )  )  ) vspeed += 0.2 ; 
  
   
-  if (  (  (  ! getcon ( "down" , "hold" )  || abs ( hspeed )  < 0.05 )  &&  ! freeDown && game . weapon != 4 )  ||  ( abs ( hspeed )  < 0.05 &&  ( game . weapon == 4 &&  ! getcon ( "shoot" , "hold" )  )  )  ||  ( game . weapon == 4 &&  ! getcon ( "shoot" , "hold" )  &&  ! getcon ( "down" , "hold" )  )  )  if ( anim == anSlide || anim == anDive ) anim = anWalk ; 
+  if (  (  (  ! getcon ( "down" , "hold" )  || fabs ( hspeed )  < 0.05 )  &&  ! freeDown && game . weapon != 4 )  ||  ( fabs ( hspeed )  < 0.05 &&  ( game . weapon == 4 &&  ! getcon ( "shoot" , "hold" )  )  )  ||  ( game . weapon == 4 &&  ! getcon ( "shoot" , "hold" )  &&  ! getcon ( "down" , "hold" )  )  )  if ( anim == anSlide || anim == anDive ) anim = anWalk ; 
  
   
   } 
@@ -612,7 +612,7 @@ shape = shapeSlide ;
   } 
   
   
-  if ( abs ( hspeed )  < friction ) hspeed = 0.0 ; 
+  if ( fabs ( hspeed )  < friction ) hspeed = 0.0 ; 
  
   if ( placeFree ( x , y + 2 )  &&  ( vspeed < 2 ||  ( vspeed < 5 &&  ( game . weapon != 3 || getcon ( "down" , "hold" )  )  &&  ! nowInWater )  ||  ( anim == anStomp && vspeed < 8 )  )  && antigrav <= 0 ) vspeed += gravity ; 
  
@@ -792,17 +792,17 @@ frame = anim [ 0 ]  ;
   break ;  case anFall : frame += 0.01 ; 
  break ;  } frame = wrap ( abs ( frame )  , anim [ 0 ]  , anim [ 1 ]  )  ; 
  if ( anim != anHurt )  { 
-  if ( abs ( hspeed )  < 0.3 && abs ( vspeed )  < 0.2 ) anim = anFall ; 
+  if ( fabs ( hspeed )  < 0.3 && fabs ( vspeed )  < 0.2 ) anim = anFall ; 
  
-  if ( abs ( hspeed )  > 0.3 ) anim = anSwimF ; 
+  if ( fabs ( hspeed )  > 0.3 ) anim = anSwimF ; 
  
   if ( vspeed > 0.2 ) anim = anSwimD ; 
  
   if ( vspeed <  - 0.2 ) anim = anSwimU ; 
  
-  if ( abs ( hspeed )  > 0.3 && vspeed > 0.2 ) anim = anSwimDF ; 
+  if ( fabs ( hspeed )  > 0.3 && vspeed > 0.2 ) anim = anSwimDF ; 
  
-  if ( abs ( hspeed )  > 0.3 && vspeed <  - 0.2 ) anim = anSwimUF ; 
+  if ( fabs ( hspeed )  > 0.3 && vspeed <  - 0.2 ) anim = anSwimUF ; 
  
   } 
   
@@ -833,13 +833,13 @@ frame = anim [ 0 ]  ;
  
   if ( hspeed < 0 ) hspeed += friction / 2 ; 
  
-  if ( abs ( hspeed )  < friction / 2 ) hspeed = 0.0 ; 
+  if ( fabs ( hspeed )  < friction / 2 ) hspeed = 0.0 ; 
  
   if ( vspeed > 0 ) vspeed -= friction / 2 ; 
  
   if ( vspeed < 0 ) vspeed += friction / 2 ; 
  
-  if ( abs ( vspeed )  < friction / 2 ) vspeed = 0.0 ; 
+  if ( fabs ( vspeed )  < friction / 2 ) vspeed = 0.0 ; 
  
   if ( vspeed > 4 ) vspeed -= 0.2 ; 
  
@@ -938,7 +938,7 @@ yprev = y ;
  
   else  { 
  vspeed /= 2 ; 
- if ( abs ( vspeed )  < 0.01 ) vspeed = 0 ; 
+ if ( fabs ( vspeed )  < 0.01 ) vspeed = 0 ; 
  
   if ( placeFree ( x , y + vspeed )  ) y += vspeed ; 
  
@@ -972,9 +972,9 @@ y -= i ;
  break ;  } 
   
   } 
-  if ( didstep == false && abs ( hspeed )  >= 1 ) hspeed -=  ( hspeed / abs ( hspeed )  )  ; 
+  if ( didstep == false && fabs ( hspeed )  >= 1 ) hspeed -=  ( hspeed / fabs ( hspeed )  )  ; 
  
-  else  if ( didstep == false && abs ( hspeed )  < 1 ) hspeed = 0 ; 
+  else  if ( didstep == false && fabs ( hspeed )  < 1 ) hspeed = 0 ; 
  
   
   } 

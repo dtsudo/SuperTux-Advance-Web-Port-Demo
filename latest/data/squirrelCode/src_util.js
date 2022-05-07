@@ -10,6 +10,10 @@ mergeTable =  function ( a , b ) {  if (  squirrelTypeOf ( a )  == null &&  squi
   
   if (  squirrelTypeOf ( b )  == null )  return a ;
   
+  if ( a == null )  return b ;
+  
+  if ( b == null )  return a ;
+  
   var nt = clone ( a )  ;
   {     var foreachOutput1 = squirrelForEach( b );     while(true)     {        foreachOutput1.next();        if (foreachOutput1.isDone()) break; slot = foreachOutput1.getKey(); i = foreachOutput1.getValue();  { 
   if (  ! nt . rawin ( slot )  ) nt [ slot ] = i ; 

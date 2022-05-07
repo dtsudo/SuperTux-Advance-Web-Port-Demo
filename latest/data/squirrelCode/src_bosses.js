@@ -199,7 +199,7 @@ routine = ruWalkIntoFrame ;
   } ;  returnVal . animics = function (  ) {  if ( placeFree ( x + hspeed , y )  || phasing ) x += hspeed ; 
  
   else  for (  var i = 0 ;
- i < abs ( hspeed * 1.5 )  ; i ++  )  { 
+ i < fabs ( hspeed * 1.5 )  ; i ++  )  { 
   if ( placeFree ( x + hspeed , y - i )  )  { 
  x += hspeed ; 
 y =  - i ; 

@@ -257,7 +257,37 @@ arg [ 0 ] = poly ;
   
   
   } 
-     }  }  if ( gvPlayer )  { 
+     }  }  for (  var i = 0 ;
+ i < gvMap . data . layers . len (  )  ; i ++  )  { 
+  if ( gvMap . data . layers [ i ]  . type == "objectgroup" )  { 
+  var lana = gvMap . data . layers [ i ]  . name ;
+  for (  var j = 0 ;
+ j < gvMap . data . layers [ i ]  . objects . len (  )  ; j ++  )  { 
+  var obj = gvMap . data . layers [ i ]  . objects [ j ]  ;
+  switch ( lana )  {  case "trigger" :  var c = newActor ( Trigger , obj . x +  ( obj . width / 2 )  , obj . y +  ( obj . height / 2 )  )  ;
+ actor [ c ]  . shape = Rec ( obj . x +  ( obj . width / 2 )  , obj . y +  ( obj . height / 2 )  , obj . width / 2 , obj . height / 2 , 0 )  ; 
+actor [ c ]  . code = obj . name ; 
+actor [ c ]  . w = obj . width / 2 ; 
+actor [ c ]  . h = obj . height / 2 ; 
+ break ;  case "water" :  var c = newActor ( Water , obj . x +  ( obj . width / 2 )  , obj . y +  ( obj . height / 2 )  )  ;
+ actor [ c ]  . shape = Rec ( obj . x +  ( obj . width / 2 )  , obj . y +  ( obj . height / 2 )  , obj . width / 2 ,  ( obj . height / 2 )  - 4 , 5 )  ; 
+ break ;  case "vmp" :  var c = actor [ newActor ( PlatformV , obj . x +  ( obj . width / 2 )  , obj . y + 8 )  ]  ;
+ c . w =  ( obj . width / 2 )  ; 
+c . r = obj . height - 16 ; 
+c . init = 1 ; 
+ if ( obj . name == "up" )  { 
+ c . mode = 2 ; 
+c . y = c . ystart + c . r ; 
+ } 
+  
+  break ;  case "secret" :  var c = actor [ newActor ( SecretWall , obj . x , obj . y , obj . name )  ]  ;
+ c . dw = obj . width / 16 ; 
+c . dh = obj . height / 16 ; 
+ break ;  }  } 
+  } 
+  
+  } 
+  if ( gvPlayer )  { 
  camx = gvPlayer . x -  ( screenW (  )  / 2 )  ; 
 camy = gvPlayer . y -  ( screenH (  )  / 2 )  ; 
  } 
@@ -479,8 +509,8 @@ drawSprite ( sprSkull , 0 , screenW (  )  - 26 , screenH (  )  - 46 )  ;
   
   if ( gvWarning < 180 )  { 
   if ( gvWarning == 0 || gvWarning == 90 )  { 
- stopChannel ( 4 )  ; 
-playSoundChannel ( sndWarning , 0 , 4 )  ; 
+ stopSound ( sndWarning )  ; 
+playSound ( sndWarning , 0 )  ; 
  } 
   
  drawSpriteEx ( sprWarning , 0 , screenW (  )  / 2 , screenH (  )  / 2 , 0 , 0 , 1 , 1 , abs ( sin ( gvWarning / 30.0 )  )  )  ; 

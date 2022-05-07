@@ -37,7 +37,7 @@ tileSetSolid ( x , y , oldsolid )  ;
   } 
   
   
-  if ( gvPlayer . rawin ( "anSlide" )  )  if ( abs ( gvPlayer . hspeed )  >= 4.5 && gvPlayer . anim == gvPlayer . anSlide )  if ( hitTest ( slideshape , gvPlayer . shape )  )  { 
+  if ( gvPlayer . rawin ( "anSlide" )  )  if ( fabs ( gvPlayer . hspeed )  >= 4.5 && gvPlayer . anim == gvPlayer . anSlide )  if ( hitTest ( slideshape , gvPlayer . shape )  )  { 
  gvPlayer . vspeed = 0 ; 
 deleteActor ( id )  ; 
 newActor ( WoodChunks , x , y )  ; 
@@ -71,7 +71,7 @@ playSoundChannel ( sndBump , 0 , 2 )  ;
  } 
   
   
-  if ( gvPlayer . rawin ( "anSlide" )  )  if (  ( abs ( gvPlayer . hspeed )  >= 4.5 ||  ( game . weapon == 4 && gvPlayer . vspeed >= 2 )  )  && gvPlayer . anim == gvPlayer . anSlide )  if ( hitTest ( slideshape , gvPlayer . shape )  )  { 
+  if ( gvPlayer . rawin ( "anSlide" )  )  if (  ( fabs ( gvPlayer . hspeed )  >= 4.5 ||  ( game . weapon == 4 && gvPlayer . vspeed >= 2 )  )  && gvPlayer . anim == gvPlayer . anSlide )  if ( hitTest ( slideshape , gvPlayer . shape )  )  { 
  vspeed =  - 2 ; 
 coins --  ; 
 newActor ( CoinEffect , x , y - 16 )  ; 
@@ -192,7 +192,7 @@ playSound ( sndBump , 0 )  ;
  } 
   
   
-  if (  ( abs ( gvPlayer . hspeed )  >= 3.5 ||  ( game . weapon == 4 && gvPlayer . vspeed >= 2 )  )  && gvPlayer . anim == gvPlayer . anSlide )  if ( hitTest ( slideshape , gvPlayer . shape )  )  { 
+  if (  ( fabs ( gvPlayer . hspeed )  >= 3.5 ||  ( game . weapon == 4 && gvPlayer . vspeed >= 2 )  )  && gvPlayer . anim == gvPlayer . anSlide )  if ( hitTest ( slideshape , gvPlayer . shape )  )  { 
  gvPlayer . vspeed = 0 ; 
 tileSetSolid ( x , y , oldsolid )  ; 
 deleteActor ( id )  ; 
@@ -857,7 +857,7 @@ BossDoor =  function ( ) { var returnVal = { constructor: function(){} } ;  retu
    baseConstructor  ( _x , _y )  ; 
  if ( _arr != "" ) delay = _arr . tointeger (  )  ; 
  
-  } ;  returnVal . run = function (  ) {  if ( gvWarning == 0 && dy == 0 )  { 
+  } ;  returnVal . run = function (  ) {  if ( gvWarning <= 10 && dy == 0 )  { 
  moving = true ; 
 tileSetSolid ( x , y , 1 )  ; 
 tileSetSolid ( x , y - 16 , 1 )  ; 
