@@ -6,7 +6,7 @@
 	
 	window.superTuxAdvanceWebVersion.localStorageFileSystem = {};
 	
-	let localStorageGuid = "bcb23aee973e30a15d17b21d60c5a0f5";
+	let localStorageGuid = "c364621e6d6d4395b6c8d1eba1d693a2";
 	
 	let localStorageKeyName = "superTuxAdvance_guid" + localStorageGuid;
 		
