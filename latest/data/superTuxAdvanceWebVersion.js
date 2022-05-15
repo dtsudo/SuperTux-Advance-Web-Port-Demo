@@ -75,6 +75,8 @@
 	
 	window.stopGame = function () { shouldStopGame = true; };
 	
+	let listOfLevels = null;
+	
 	let debugCommands = function () {
 		
 		if (invulnerable) {
@@ -83,29 +85,24 @@
 		}
 		
 		if (unlockAllLevels) {
-			game.completed["0-0"] = true;
-			game.completed["0-1"] = true;
-			game.completed["0-2"] = true;
-			game.completed["0-3"] = true;
-			game.completed["0-4"] = true;
-			game.completed["0-5"] = true;
-			game.completed["0-6a"] = true;
-			game.completed["0-6b"] = true;
-			game.completed["0-7"] = true;
-			game.completed["0-8"] = true;
-			game.completed["0-9"] = true;
-			game.completed["Fw-1"] = true;
-			game.completed["Fw-2"] = true;
-			game.completed["Fw-3"] = true;
-			game.completed["Fw-3b"] = true;
-			game.completed["Fw-4"] = true;
-			game.completed["Fw-5"] = true;
-			game.completed["Fw-6"] = true;
-			game.completed["Fw-7"] = true;
-			game.completed["Fw-8"] = true;
-			game.completed["Fw-9"] = true;
-			game.completed["B-1"] = true;
-			game.completed["B-2"] = true;
+			
+			if (listOfLevels === null) {
+				listOfLevels = [];
+				
+				let folder = window.lsdir("res/map");
+				for (let i = 0; i < folder.length; i++) {
+					if (folder[i].toLowerCase().endsWith(".json"))
+						listOfLevels.push(folder[i].substring(0, folder[i].length - 5));
+				}
+				folder = window.lsdir("contrib/frostlands");
+				for (let i = 0; i < folder.length; i++) {
+					if (folder[i].toLowerCase().endsWith(".json"))
+						listOfLevels.push(folder[i].substring(0, folder[i].length - 5));
+				}
+			}
+			
+			for (let i = 0; i < listOfLevels.length; i++)
+				game.completed[listOfLevels[i]] = true;
 		}
 	};
 	

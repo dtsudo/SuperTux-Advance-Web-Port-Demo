@@ -11,6 +11,7 @@ mussal = "contrib/frostlands/music/salcon.ogg" ;
 bgAuroraALT = newSprite ( "contrib/frostlands/gfx/BG/aurora-alt.png" , 720 , 240 , 0 , 0 , 0 , 0 )  ; 
 bgSnowPlainALT = newSprite ( "contrib/frostlands/gfx/BG/bgSnowPlain-alt.png" , 720 , 240 , 0 , 0 , 0 , 0 )  ; 
 bgSnowNever = newSprite ( "contrib/frostlands/gfx/BG/Anever.png" , 720 , 240 , 0 , 0 , 0 , 0 )  ; 
+bgNightAlt = newSprite ( "contrib/frostlands/gfx/BG/bgSnowNight-alt.png" , 720 , 240 , 0 , 0 , 0 , 0 )  ; 
 bgRace = newSprite ( "contrib/frostlands/gfx/BG/tuxracer.png" , 520 , 240 , 0 , 0 , 0 , 0 )  ; 
 sprC1 = newSprite ( "contrib/frostlands/gfx/effects/star1.png" , 7 , 7 , 0 , 0 , 3 , 3 )  ; 
 sprTinyFireGuinb = newSprite ( "contrib/frostlands/gfx/NPC/tinyfireguinb.png" , 13 , 23 , 0 , 0 , 6 , 23 )  ; 
@@ -73,6 +74,11 @@ dbgNever =  function (  ) {  for (  var i = 0 ;
 dbgSnowPlainF =  function (  ) {  for (  var i = 0 ;
  i < 2 ; i ++  )  { 
  drawSprite ( bgSnowPlainALT , 0 ,  (  (  - camx / 8 )  % 720 )  +  ( i * 720 )  ,  ( screenH (  )  / 2 )  - 120 )  ; 
+ } 
+  }  ; 
+dbgNightalt =  function (  ) {  for (  var i = 0 ;
+ i < 2 ; i ++  )  { 
+ drawSprite ( bgNightAlt , 0 ,  (  (  - camx / 8 )  % 720 )  +  ( i * 720 )  ,  ( screenH (  )  / 2 )  - 120 )  ; 
  } 
   }  ; 
 dbgRace =  function (  ) { drawSprite ( bgRace , 0 , 0 ,  ( screenH (  )  / 2 )  - 120 )  ; 

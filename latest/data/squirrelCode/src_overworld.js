@@ -344,7 +344,23 @@ c . visible = i . visible ;
  break ;  case 3 :  var c = actor [ newActor ( TownIcon , i . x + 8 , i . y - 8 )  ]  ;
  c . level = i . name ; 
  break ;  }  } 
-     }  } gvGameMode = gmOverworld ; 
+     }  }  for (  var i = 0 ;
+ i < gvMap . data . layers . len (  )  ; i ++  )  { 
+  if ( gvMap . data . layers [ i ]  . type == "objectgroup" )  { 
+  var lana = gvMap . data . layers [ i ]  . name ;
+  for (  var j = 0 ;
+ j < gvMap . data . layers [ i ]  . objects . len (  )  ; j ++  )  { 
+  var obj = gvMap . data . layers [ i ]  . objects [ j ]  ;
+  switch ( lana )  {  case "trigger" :  var c = newActor ( Trigger , obj . x +  ( obj . width / 2 )  , obj . y +  ( obj . height / 2 )  )  ;
+ actor [ c ]  . shape = Rec ( obj . x +  ( obj . width / 2 )  , obj . y +  ( obj . height / 2 )  , obj . width / 2 , obj . height / 2 , 0 )  ; 
+actor [ c ]  . code = obj . name ; 
+actor [ c ]  . w = obj . width / 2 ; 
+actor [ c ]  . h = obj . height / 2 ; 
+ break ;  }  } 
+  } 
+  
+  } 
+ gvGameMode = gmOverworld ; 
  if ( gvPlayer )  { 
  camx = gvPlayer . x -  ( screenW (  )  / 2 )  ; 
 camy = gvPlayer . y -  ( screenH (  )  / 2 )  ; 

@@ -67,6 +67,9 @@
 			return lsdirHelper(root[folder], restOfFilePath);
 		}
 		
+		if ((typeof root) === "string")
+			return [];
+		
 		let returnVal = [];
 		
 		for (let k in root) {

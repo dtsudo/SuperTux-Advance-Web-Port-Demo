@@ -21,7 +21,10 @@ xstart = _x ;
 ystart = _y ; 
  } ;  returnVal . run = function (  ) { xprev = x ; 
 yprev = y ; 
- } ;  returnVal . placeFree = function ( _x , _y ) {  var ns ;
+physics (  )  ; 
+animation (  )  ; 
+routine (  )  ; 
+ } ;  returnVal . physics = function (  ) {  } ;  returnVal . animation = function (  ) {  } ;  returnVal . routine = function (  ) {  } ;  returnVal . placeFree = function ( _x , _y ) {  var ns ;
   if (  squirrelTypeOf ( shape )  == "Rec" ) ns = Rec ( _x + shape . ox , _y + shape . oy , shape . w , shape . h , shape . kind )  ; 
  
   if (  squirrelTypeOf ( shape )  == "Cir" ) ns = Cir ( _x + shape . ox , _y + shape . oy , shape . r )  ; 
@@ -412,7 +415,7 @@ gvMap . shape . h = 4.0 ;
   } 
   
   return false ;
-  } ;  returnVal . onIce = function ( _x =  - 1 , _y =  - 1 ) {  var ns ;
+  } ;  returnVal . onIce = function ( _x = 0 , _y = 1 ) {  var ns ;
   if (  squirrelTypeOf ( shape )  == "Rec" ) ns = Rec ( x + shape . ox , y + shape . oy + 2 , shape . w , shape . h , shape . kind )  ; 
  
   if (  squirrelTypeOf ( shape )  == "Cir" ) ns = Cir ( x + shape . ox , y + shape . oy + 2 , shape . r )  ; 
